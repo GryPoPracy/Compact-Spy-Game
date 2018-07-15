@@ -1,0 +1,6 @@
+[submodule "Assets/Content/Code/States"]
+	path = Assets/Content/Code/States
+	url = https://github.com/ukidabek/States.git
+[submodule "Assets/Content/Code/DesignPatterns"]
+	path = Assets/Content/Code/DesignPatterns
+	url = https://github.com/ukidabek/DesignPatterns.git
