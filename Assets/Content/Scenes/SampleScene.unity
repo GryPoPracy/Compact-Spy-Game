@@ -1304,6 +1304,8 @@ GameObject:
   - component: {fileID: 398585354}
   - component: {fileID: 398585353}
   - component: {fileID: 398585352}
+  - component: {fileID: 398585356}
+  - component: {fileID: 398585357}
   - component: {fileID: 398585355}
   m_Layer: 0
   m_Name: Character
@@ -1373,6 +1375,29 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &398585356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 398585351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa70e7c86e35293419de8d800cd9cc0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _stateHandler: {fileID: 398585352}
+--- !u!114 &398585357
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 398585351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 265f804b68195d145ae6e4dcd00c844b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &403045410
 GameObject:
   m_ObjectHideFlags: 0
@@ -3063,6 +3088,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0be69fb499a37f54a912bdbf4ab6c9f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rayDuration: 1
 --- !u!1 &880688077
 GameObject:
   m_ObjectHideFlags: 0
