@@ -4,3 +4,6 @@
 [submodule "Assets/Content/Code/DesignPatterns"]
 	path = Assets/Content/Code/DesignPatterns
 	url = https://github.com/ukidabek/DesignPatterns.git
+[submodule "Assets/Content/Code/Actions"]
+	path = Assets/Content/Code/Actions
+	url = https://github.com/ukidabek/ActionSystem.git
