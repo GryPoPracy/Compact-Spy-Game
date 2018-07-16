@@ -936,15 +936,21 @@ MonoBehaviour:
   stateInfo:
     _type:
       _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      _typeName: HideState
+      _typeName: Player.States.HideState
+      _name: HideState
     _parameters:
     - _parameterName: hideoutTransform
       _type:
         _assemblFullName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
           PublicKeyToken=null
         _typeName: UnityEngine.Transform
+        _name: Transform
       ObjectValue: {fileID: 4788631249516746}
       IntValue: 0
+      FloatValue: 0
+      BoolValue: 0
+      StringValue: 
+    _name: HideState (Transform hideoutTransform)
 --- !u!114 &114623881233553334
 MonoBehaviour:
   m_ObjectHideFlags: 1
