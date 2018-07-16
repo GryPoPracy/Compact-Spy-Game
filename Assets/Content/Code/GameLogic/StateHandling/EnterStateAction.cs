@@ -5,7 +5,7 @@ using BaseGameLogic.States.Utility;
 
 public partial class EnterStateAction : BaseAction
 {
-    [SerializeField] private StateInfo stateInfo = new StateInfo();
+    [SerializeField] private StateConstructor stateInfo = new StateConstructor();
 
     public override void Perform(params object[] list)
     {

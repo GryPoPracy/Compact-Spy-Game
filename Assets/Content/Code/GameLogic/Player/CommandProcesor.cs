@@ -8,7 +8,7 @@ namespace Player
 {
     public class CommandProcesor : MonoBehaviour
     {
-        public class Command
+        [Serializable] public class Command
         {
             public readonly Vector3 Destination = Vector3.zero;
             public readonly GameObject GameObject = null;
@@ -20,7 +20,8 @@ namespace Player
             }
         }
 
-        public readonly Queue<Command> CommandQueue = new Queue<Command>();
+        private Command _command = null;
+        public Command CurrenntCommand { get { return _command; } }
 
         void Start()
         {
@@ -30,7 +31,12 @@ namespace Player
 
         private void Process(Vector3 position, Vector3 arg1, Rigidbody arg2, GameObject arg3)
         {
-            CommandQueue.Enqueue(new Command(position, arg3));
+            _command = new Command(position, arg3);
+        }
+
+        public void Consume()
+        {
+            _command = null;
         }
     }
 }
