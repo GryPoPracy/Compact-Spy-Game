@@ -45,7 +45,7 @@ namespace Player.States
 
         public void ExecuteCommand()
         {
-            _agent.SetDestination(_procesor.CurrenntCommand.Destination);
+            _agent.SetDestination(_procesor.CurrenntCommand.HitPosition);
             _objectToUse = _procesor.CurrenntCommand.GameObject.GetComponent<IInteraction>();
             _procesor.Consume();
         }
