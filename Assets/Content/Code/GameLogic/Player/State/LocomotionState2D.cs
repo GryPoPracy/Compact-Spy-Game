@@ -1,6 +1,7 @@
 ﻿using BaseGameLogic.States;
 using Interactions;
 using Player;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,6 +13,7 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
     [RequiredReference] private SpriteRenderer _renderer = null;
     [RequiredReference] private CommandProcesor _commandProcesor = null;
     [RequiredReference] private StateHandler _stateHandler = null;
+    [RequiredReference] private CharacterAnimationHandler _characterAnimationHandler = null;
 
     private float _speed = 3;
     private bool _moveOnInteractionOnly = false;
@@ -20,7 +22,6 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
     private Vector3 _destination = Vector3.zero;
     private IInteraction _interaction = null;
     private Collider2D _collider = null;
-    private bool _isRuning = false;
 
     public LocomotionState2D(float speed, bool moveOnInteractionOnly, Transform colectPoint)
     {
@@ -34,16 +35,38 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
         _destination = _transform.position;
     }
 
-    public void OnExit()
-    {
-    }
+    public void OnExit() {}
 
     public void OnSleep()
     {
-        _animator.SetBool("Run", false);
+        _characterAnimationHandler.Run.SetBool(_animator, false);
     }
 
     public void OnUpdate()
+    {
+        HandleIntput();
+        MoveHaracter();
+        Interact();
+    }
+
+    private void Interact()
+    {
+        if (_interaction != null && _collider.OverlapPoint(_collectPoint.position))
+        {
+            _interaction.Interact(_stateHandler);
+            _collider = null;
+            _interaction = null;
+        }
+    }
+
+    private void MoveHaracter()
+    {
+        _transform.position = Vector3.MoveTowards(_transform.position, _destination, _speed * Time.deltaTime);
+        if (Vector3.Distance(_transform.position, _destination) <= 0)
+            _characterAnimationHandler.Run.SetBool(_animator, false);
+    }
+
+    private void HandleIntput()
     {
         if(_commandProcesor.CurrenntCommand != null)
         {
@@ -57,22 +80,10 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
             {
                 _renderer.flipX = _transform.position.x > _commandProcesor.CurrenntCommand.WorldPosition.x;
                 _destination.x = _commandProcesor.CurrenntCommand.WorldPosition.x;
-                _animator.SetBool("Run", _isRuning = true);
+                _characterAnimationHandler.Run.SetBool(_animator, true);
             }
 
             _commandProcesor.Consume();
         }
-
-        _transform.position = Vector3.MoveTowards(_transform.position, _destination, _speed * Time.deltaTime);
-        if (_interaction != null && _collider.OverlapPoint(_collectPoint.position))
-        {
-            _interaction.Interact(_stateHandler);
-            _collider = null;
-            _interaction = null;
-        }
-
-        if(Vector3.Distance(_transform.position, _destination) <= 0 && _isRuning)
-            _animator.SetBool("Run", false);
-
     }
 }
