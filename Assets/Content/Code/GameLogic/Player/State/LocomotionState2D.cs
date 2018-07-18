@@ -14,17 +14,19 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
     [RequiredReference] private StateHandler _stateHandler = null;
 
     private float _speed = 3;
-    private Vector3 _destination = Vector3.zero;
+    private bool _moveOnInteractionOnly = false;
+    private Transform _collectPoint = null;
 
+    private Vector3 _destination = Vector3.zero;
     private IInteraction _interaction = null;
     private Collider2D _collider = null;
-    private Transform _collectPoint = null;
     private bool _isRuning = false;
 
-    public LocomotionState2D(float speed, Transform colectPoint)
+    public LocomotionState2D(float speed, bool moveOnInteractionOnly, Transform colectPoint)
     {
         _speed = speed;
         _collectPoint = colectPoint;
+        _moveOnInteractionOnly = moveOnInteractionOnly;
     }
 
     public void OnEnter()
@@ -45,15 +47,20 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
     {
         if(_commandProcesor.CurrenntCommand != null)
         {
-            _renderer.flipX = _transform.position.x > _commandProcesor.CurrenntCommand.WorldPosition.x;
-            _destination.x = _commandProcesor.CurrenntCommand.WorldPosition.x;
             if(_commandProcesor.CurrenntCommand.GameObject != null)
             {
                 _collider = _commandProcesor.CurrenntCommand.GameObject.GetComponent<Collider2D>();
                 _interaction = _commandProcesor.CurrenntCommand.GameObject.GetComponent<IInteraction>();
             }
+
+            if(!_moveOnInteractionOnly || (_moveOnInteractionOnly && _interaction != null))
+            {
+                _renderer.flipX = _transform.position.x > _commandProcesor.CurrenntCommand.WorldPosition.x;
+                _destination.x = _commandProcesor.CurrenntCommand.WorldPosition.x;
+                _animator.SetBool("Run", _isRuning = true);
+            }
+
             _commandProcesor.Consume();
-            _animator.SetBool("Run", _isRuning = true);
         }
 
         _transform.position = Vector3.MoveTowards(_transform.position, _destination, _speed * Time.deltaTime);
