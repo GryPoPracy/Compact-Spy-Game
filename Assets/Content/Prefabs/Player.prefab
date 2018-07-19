@@ -37,9 +37,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4539871291609568}
   - component: {fileID: 114998896252299652}
-  - component: {fileID: 114851663795855884}
+  - component: {fileID: 114715461353063072}
   - component: {fileID: 114650697668091172}
   - component: {fileID: 114221764073203964}
+  - component: {fileID: 114333606581948496}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -135,6 +136,20 @@ MonoBehaviour:
   _run:
     _name: Run
     _nameHash: 1748754976
+--- !u!114 &114333606581948496
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372406359291904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddca69b192854b744beab8eaa13f1004, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 1
+  _moveOnInteractionOnly: 1
+  _colectPoint: {fileID: 4821051649278518}
 --- !u!114 &114650697668091172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -146,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265f804b68195d145ae6e4dcd00c844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &114851663795855884
+--- !u!114 &114715461353063072
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -154,7 +169,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1372406359291904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa70e7c86e35293419de8d800cd9cc0f, type: 3}
+  m_Script: {fileID: 11500000, guid: 126dcbe4e1dcc46489490b4375085cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _stateHandler: {fileID: 114998896252299652}
@@ -163,40 +178,8 @@ MonoBehaviour:
       _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
       _typeName: LocomotionState2D
       _name: LocomotionState2D
-    _parameters:
-    - _parameterName: speed
-      _type:
-        _assemblFullName: mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        _typeName: System.Single
-        _name: Single
-      ObjectValue: {fileID: 0}
-      IntValue: 0
-      FloatValue: 1
-      BoolValue: 0
-      StringValue: 
-    - _parameterName: moveOnInteractionOnly
-      _type:
-        _assemblFullName: mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
-        _typeName: System.Boolean
-        _name: Boolean
-      ObjectValue: {fileID: 0}
-      IntValue: 0
-      FloatValue: 0
-      BoolValue: 1
-      StringValue: 
-    - _parameterName: colectPoint
-      _type:
-        _assemblFullName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
-          PublicKeyToken=null
-        _typeName: UnityEngine.Transform
-        _name: Transform
-      ObjectValue: {fileID: 4821051649278518}
-      IntValue: 0
-      FloatValue: 0
-      BoolValue: 0
-      StringValue: 
-    _name: LocomotionState2D (Single speed, Boolean moveOnInteractionOnly, Transform
-      colectPoint)
+    _parameters: []
+    _name: LocomotionState2D ()
 --- !u!114 &114998896252299652
 MonoBehaviour:
   m_ObjectHideFlags: 1

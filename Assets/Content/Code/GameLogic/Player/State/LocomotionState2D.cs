@@ -14,21 +14,13 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
     [RequiredReference] private CommandProcesor _commandProcesor = null;
     [RequiredReference] private StateHandler _stateHandler = null;
     [RequiredReference] private CharacterAnimationHandler _characterAnimationHandler = null;
-
-    private float _speed = 3;
-    private bool _moveOnInteractionOnly = false;
-    private Transform _collectPoint = null;
+    [RequiredReference] private LocomotionState2DSettings _locomotionState2DSettings = null;
 
     private Vector3 _destination = Vector3.zero;
     private IInteraction _interaction = null;
     private Collider2D _collider = null;
 
-    public LocomotionState2D(float speed, bool moveOnInteractionOnly, Transform colectPoint)
-    {
-        _speed = speed;
-        _collectPoint = colectPoint;
-        _moveOnInteractionOnly = moveOnInteractionOnly;
-    }
+    public LocomotionState2D() {}
 
     public void OnEnter()
     {
@@ -51,9 +43,9 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
 
     private void Interact()
     {
-        if (_interaction != null && _collider.OverlapPoint(_collectPoint.position))
+        if (_interaction != null && _collider.OverlapPoint(_locomotionState2DSettings.ColectPoint.position))
         {
-            _interaction.Interact(_stateHandler);
+            _interaction.Interact(_transform.gameObject, _stateHandler);
             _collider = null;
             _interaction = null;
         }
@@ -61,7 +53,7 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
 
     private void MoveHaracter()
     {
-        _transform.position = Vector3.MoveTowards(_transform.position, _destination, _speed * Time.deltaTime);
+        _transform.position = Vector3.MoveTowards(_transform.position, _destination, _locomotionState2DSettings.Speed * Time.deltaTime);
         if (Vector3.Distance(_transform.position, _destination) <= 0)
             _characterAnimationHandler.Run.SetBool(_animator, false);
     }
@@ -76,7 +68,7 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
                 _interaction = _commandProcesor.CurrenntCommand.GameObject.GetComponent<IInteraction>();
             }
 
-            if(!_moveOnInteractionOnly || (_moveOnInteractionOnly && _interaction != null))
+            if(!_locomotionState2DSettings.MoveOnInteractionOnly || (_locomotionState2DSettings.MoveOnInteractionOnly && _interaction != null))
             {
                 _renderer.flipX = _transform.position.x > _commandProcesor.CurrenntCommand.WorldPosition.x;
                 _destination.x = _commandProcesor.CurrenntCommand.WorldPosition.x;

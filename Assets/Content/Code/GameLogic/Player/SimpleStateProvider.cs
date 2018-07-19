@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Player
 {
-    public class PlayerStateHandler : BaseStateProvider
+    public class SimpleStateProvider : BaseStateProvider
     {
         [SerializeField] private StateConstructor _defaultState = new StateConstructor();
         public override IState DefaultState { get { return _defaultState.GetInstance(); } }
