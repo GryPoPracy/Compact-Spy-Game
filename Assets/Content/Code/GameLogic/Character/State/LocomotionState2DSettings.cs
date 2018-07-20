@@ -10,6 +10,10 @@ public class LocomotionState2DSettings : MonoBehaviour
     [SerializeField] private bool _moveOnInteractionOnly = true;
     public bool MoveOnInteractionOnly { get { return _moveOnInteractionOnly; } }
 
+    [SerializeField] private bool _useInteractions = true;
+    public bool UseInteractions { get { return _useInteractions; } }
+
     [SerializeField] private Transform _colectPoint = null;
     public Transform ColectPoint { get { return _colectPoint; } }
+
 }

@@ -11,6 +11,10 @@ public class CameraLocomotionState2DSettings : MonoBehaviour
     public AnimationCurve DistanceSpeedMultiplier { get { return _distanceSpeedMultiplier; } }
 
     [SerializeField] private Vector3 _cameraOffser = Vector3.zero;
-    public Vector3 CameraOffser { get { return _cameraOffser; } }
+    public Vector3 CameraOffset { get { return _cameraOffser; } }
+
+    [SerializeField] private float _teleportDistance = 4f;
+    public float TeleportDistance { get { return _teleportDistance; } }
+
 
 }

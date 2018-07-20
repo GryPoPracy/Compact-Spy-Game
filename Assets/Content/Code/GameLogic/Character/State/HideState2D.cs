@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player.States
+namespace Character.States
 {
     public class HideState2D : IState, IOnUpdate
     {

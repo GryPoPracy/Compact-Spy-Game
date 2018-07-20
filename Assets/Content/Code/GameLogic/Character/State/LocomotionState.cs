@@ -6,7 +6,7 @@ using Interactions;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Player.States
+namespace Character.States
 {
     public class LocomotionState : IState, IOnUpdate, IOnAwake
     {

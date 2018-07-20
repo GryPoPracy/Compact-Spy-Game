@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using BaseGameLogic.States;
 using Interactions;
 
-namespace Player.States
+namespace Character.States
 {
     public class HideState : IState, IOnUpdate
     {
