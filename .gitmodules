@@ -7,3 +7,6 @@
 [submodule "Assets/Content/Code/Actions"]
 	path = Assets/Content/Code/Actions
 	url = https://github.com/ukidabek/ActionSystem.git
+[submodule "Assets/Content/Code/Utilities"]
+	path = Assets/Content/Code/Utilities
+	url = https://github.com/ukidabek/Utilities.git

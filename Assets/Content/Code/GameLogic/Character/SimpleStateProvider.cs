@@ -1,10 +1,10 @@
 ﻿using BaseGameLogic.States;
 using BaseGameLogic.States.Providers;
 using BaseGameLogic.States.Utility;
-using Player.States;
+using Character.States;
 using UnityEngine;
 
-namespace Player
+namespace Character
 {
     public class SimpleStateProvider : BaseStateProvider
     {

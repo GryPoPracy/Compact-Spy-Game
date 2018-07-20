@@ -20,10 +20,17 @@ public class CameraLocomotionState2D : IState, IOnLateUpdate
         Vector3 cameraPosition = _transform.position;
         cameraPosition.z = 0;
         float distance = Vector3.Distance(cameraPosition, PlayerTransform.position);
+        if(distance > _cameraLocomotionState2DSettings.TeleportDistance)
+        {
+            var position = PlayerTransform.position;
+            position.z = _cameraLocomotionState2DSettings.CameraOffset.z;
+            _transform.position = position;
+        }
+
         float multimultiplier = _cameraLocomotionState2DSettings.DistanceSpeedMultiplier.Evaluate(distance);
         _transform.position = Vector3.MoveTowards(
             _transform.position, 
-            PlayerTransform.position + _cameraLocomotionState2DSettings.CameraOffser, 
+            PlayerTransform.position + _cameraLocomotionState2DSettings.CameraOffset, 
             _cameraLocomotionState2DSettings.Speed * Time.deltaTime * multimultiplier);
     }
 }

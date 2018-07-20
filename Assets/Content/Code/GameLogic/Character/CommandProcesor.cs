@@ -4,15 +4,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Player
+namespace Character
 {
-    public class CommandProcesor : MonoBehaviour
+    public class CommandProcesor : MonoBehaviour, ISupervisor
     {
         [Serializable] public class Command
         {
-            public readonly Vector3 WorldPosition = Vector3.zero;
-            public readonly Vector3 HitPosition = Vector3.zero;
-            public readonly GameObject GameObject = null;
+            public Vector3 WorldPosition = Vector3.zero;
+            public Vector3 HitPosition = Vector3.zero;
+            public GameObject GameObject = null;
 
             public Command(Vector3 destination, GameObject gameObject)
             {

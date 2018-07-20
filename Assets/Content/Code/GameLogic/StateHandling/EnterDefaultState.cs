@@ -1,6 +1,6 @@
 ﻿using ActionsSystem;
 using BaseGameLogic.States.Providers;
-using Player;
+using Character;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
