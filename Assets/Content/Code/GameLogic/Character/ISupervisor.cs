@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Character
+﻿namespace Character
 {
     public interface ISupervisor
     {

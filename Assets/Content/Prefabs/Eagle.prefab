@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224187775609515310}
   - component: {fileID: 222819557852004772}
   - component: {fileID: 114537901558713428}
+  - component: {fileID: 114217225088333174}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -180,10 +181,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 114217225088333174}
+        m_MethodName: LerpColor
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: Character.DetectionRateUpdate, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
       PublicKeyToken=null
   _detection: 0
   _detectionRate: 1
+--- !u!114 &114217225088333174
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1053310072236570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cecc7a4be5c991b419c2955fb676b0d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _mode: 0
+  _image: {fileID: 114537901558713428}
+  _a: {r: 1, g: 0.880132, b: 0, a: 1}
+  _b: {r: 1, g: 0.054250643, b: 0, a: 1}
 --- !u!114 &114415770298916718
 MonoBehaviour:
   m_ObjectHideFlags: 1

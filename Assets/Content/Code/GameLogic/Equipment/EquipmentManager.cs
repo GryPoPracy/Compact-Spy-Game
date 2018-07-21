@@ -10,22 +10,30 @@ namespace Equipment
     public class EquipmentManager : Singleton<EquipmentManager>
     {
         [SerializeField] private int _collectedPrice = 0;
+        [SerializeField] private int _priceInStash = 0;
 
-        public PriceUpdateCallback PriceUpdateCallback = new PriceUpdateCallback();
-
-        private Queue<ICollectable> collectables = new Queue<ICollectable>();
+        public PriceUpdateCallback CollectedPricehUpdateCallback = new PriceUpdateCallback();
+        public PriceUpdateCallback StashUpdateCallback = new PriceUpdateCallback();
 
         public void EnqueueCollectible(ICollectable collectable)
         {
-            collectables.Enqueue(collectable);
+            _collectedPrice += collectable.Prize;
+            CollectedPricehUpdateCallback.Invoke(_collectedPrice.ToString());
+        }
+
+        public void ClearCollectedPrice()
+        {
+            _collectedPrice = 0;
+            CollectedPricehUpdateCallback.Invoke(_collectedPrice.ToString());
         }
 
         public void Stash()
         {
-            while(collectables.Count > 0)
-                _collectedPrice += collectables.Dequeue().Prize;
+            _priceInStash += _collectedPrice;
+            _collectedPrice = 0;
 
-            PriceUpdateCallback.Invoke(_collectedPrice.ToString());
+            CollectedPricehUpdateCallback.Invoke(_collectedPrice.ToString());
+            StashUpdateCallback.Invoke(_priceInStash.ToString());
         }
     }
     [Serializable] public class PriceUpdateCallback : UnityEvent<string> {} 
