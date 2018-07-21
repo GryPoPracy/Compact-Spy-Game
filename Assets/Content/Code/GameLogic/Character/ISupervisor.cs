@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Character
 {
-    using Command = CommandProcesor.Command;
     public interface ISupervisor
     {
         Command CurrenntCommand { get; }

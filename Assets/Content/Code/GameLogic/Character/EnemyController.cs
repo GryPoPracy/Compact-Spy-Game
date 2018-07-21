@@ -5,7 +5,6 @@ using UnityEngine;
 
 namespace Character
 {
-    using Command = CommandProcesor.Command;
     public class EnemyController : MonoBehaviour, ISupervisor
     {
         private Command _currenntCommand = null;
