@@ -18,10 +18,18 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
         _startPosition = transform.position;
     }
 
-    public void ResetPlayer()
+    public void ClearPlayerState()
     {
         _stateHandler.ClearStack();
+    }
+
+    public void ReserToStartPosition()
+    {
         transform.position = _startPosition;
+    }
+
+    public void EnterDefaultState()
+    {
         _baseStateProvider.EnterDefaultState();
     }
 

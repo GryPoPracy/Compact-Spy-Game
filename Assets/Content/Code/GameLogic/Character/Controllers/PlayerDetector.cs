@@ -1,4 +1,5 @@
-﻿using BaseGameLogic.States;
+﻿using ActionsSystem;
+using BaseGameLogic.States;
 using Character.States;
 using Equipment;
 using System;
@@ -32,26 +33,17 @@ namespace Character
             IState state = null;
             if (hit2D)
             {
-                //PlayerInRangeCallback.Invoke(hit2D);
                 state = GetComponent<StateHandler>().CurrentStateInterfaceHandler.CurrentState;
                 if (!(state is HideState2D))
                 {
                     Debug.LogFormat("I see {0}", hit2D.collider.name);
                     if (Vector3.Distance(hit2D.collider.transform.position, transform.position) < _instantDetectionDistance)
-                    {
-                        PlayerCharacter.Instance.ResetPlayer();
-                        EquipmentManager.Instance.ClearCollectedPrice();
-                        Debug.Log("Detected!!!");
-                    }
+                        GlobalEventsManager.Instance.PlayerDetected();
                 }
             }
             _detection = Mathf.Clamp01(_detection += _detectionRate * Time.deltaTime * (hit2D && !(state is HideState2D) ? 1 : -1));
             if(_detection == 1f)
-            {
-                PlayerCharacter.Instance.ResetPlayer();
-                EquipmentManager.Instance.ClearCollectedPrice();
-                Debug.Log("Detected!!!");
-            }
+                GlobalEventsManager.Instance.PlayerDetected();
 
             DetectionRateUpdateCallback.Invoke(_detection);
         }
@@ -63,5 +55,4 @@ namespace Character
     }
 
     [Serializable] public class DetectionRateUpdate : UnityEvent<float> { };
-    [Serializable] public class PlayerInRangeCallback : UnityEvent<bool> { };
 }

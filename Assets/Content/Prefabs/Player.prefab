@@ -42,6 +42,7 @@ GameObject:
   - component: {fileID: 114221764073203964}
   - component: {fileID: 114333606581948496}
   - component: {fileID: 114598504831171482}
+  - component: {fileID: 114847195748295644}
   - component: {fileID: 61060577895099336}
   m_Layer: 10
   m_Name: Player
@@ -223,6 +224,20 @@ MonoBehaviour:
       _name: LocomotionState2D
     _parameters: []
     _name: LocomotionState2D ()
+--- !u!114 &114847195748295644
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1372406359291904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07804f098fc33d746979a738841208a7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _data:
+  - {fileID: 114998896252299652}
+  - {fileID: 114715461353063072}
 --- !u!114 &114998896252299652
 MonoBehaviour:
   m_ObjectHideFlags: 1

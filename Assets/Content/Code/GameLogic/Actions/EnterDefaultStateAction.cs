@@ -5,7 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnterDefaultState : BaseAction
+public class EnterDefaultStateAction : BaseAction
 {
     public override void Perform(params object[] list)
     {
