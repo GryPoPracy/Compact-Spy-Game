@@ -20,6 +20,8 @@ namespace Character
         [SerializeField, Range(0f, 1f)] private float _detection = 0;
         [SerializeField] private float _detectionRate = 1f;
 
+        [SerializeField] private GlobalEventTrigger _playerDetectedEventTrigger = new GlobalEventTrigger();
+
         private void Awake()
         {
             DetectionRateUpdateCallback.Invoke(_detection);
@@ -38,12 +40,12 @@ namespace Character
                 {
                     Debug.LogFormat("I see {0}", hit2D.collider.name);
                     if (Vector3.Distance(hit2D.collider.transform.position, transform.position) < _instantDetectionDistance)
-                        GlobalEventsManager.Instance.PlayerDetected();
+                        _playerDetectedEventTrigger.Trigger();
                 }
             }
             _detection = Mathf.Clamp01(_detection += _detectionRate * Time.deltaTime * (hit2D && !(state is HideState2D) ? 1 : -1));
             if(_detection == 1f)
-                GlobalEventsManager.Instance.PlayerDetected();
+                _playerDetectedEventTrigger.Trigger();
 
             DetectionRateUpdateCallback.Invoke(_detection);
         }

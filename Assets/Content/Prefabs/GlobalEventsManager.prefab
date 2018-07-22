@@ -87,6 +87,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 1
+  _eventList:
+  - _name: PlayerDetected
+    _eventActions:
+      _actionsList:
+      - {fileID: 114434808159844276}
+      - {fileID: 114415648204390956}
+      - {fileID: 114401209668241442}
   _playerDetectedActions:
     _actionsList:
     - {fileID: 114434808159844276}

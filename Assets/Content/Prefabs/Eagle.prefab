@@ -196,6 +196,8 @@ MonoBehaviour:
       PublicKeyToken=null
   _detection: 0
   _detectionRate: 1
+  _playerDetectedEventTrigger:
+    _eventName: PlayerDetected
 --- !u!114 &114217225088333174
 MonoBehaviour:
   m_ObjectHideFlags: 1
