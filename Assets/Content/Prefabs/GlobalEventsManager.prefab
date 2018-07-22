@@ -35,6 +35,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4470349176553580}
+  - component: {fileID: 114275147644864792}
   - component: {fileID: 114434808159844276}
   - component: {fileID: 114415648204390956}
   - component: {fileID: 114401209668241442}
@@ -89,16 +90,22 @@ MonoBehaviour:
   _dontDestroyOnLoad: 1
   _eventList:
   - _name: PlayerDetected
-    _eventActions:
-      _actionsList:
-      - {fileID: 114434808159844276}
-      - {fileID: 114415648204390956}
-      - {fileID: 114401209668241442}
-  _playerDetectedActions:
-    _actionsList:
-    - {fileID: 114434808159844276}
-    - {fileID: 114415648204390956}
-    - {fileID: 114401209668241442}
+    event:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114275147644864792}
+          m_MethodName: Perform
+          m_Mode: 0
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: BaseGameLogic.Utilities.GlobalEventsManager+GlobalEvent+EventWithParams,
+        Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114254151247703806
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -110,6 +117,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 539fc8d9f5e1c0b418bbb1c36e5eabb0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114275147644864792
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861172060593568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0a51b027bfa0048bd91853d2786e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionList:
+    _actionsList:
+    - {fileID: 114434808159844276}
+    - {fileID: 114415648204390956}
+    - {fileID: 114401209668241442}
 --- !u!114 &114401209668241442
 MonoBehaviour:
   m_ObjectHideFlags: 1

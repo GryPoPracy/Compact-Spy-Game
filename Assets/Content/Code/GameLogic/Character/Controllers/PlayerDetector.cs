@@ -1,10 +1,7 @@
-﻿using ActionsSystem;
-using BaseGameLogic.States;
+﻿using BaseGameLogic.States;
+using BaseGameLogic.Utilities;
 using Character.States;
-using Equipment;
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
