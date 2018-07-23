@@ -143,6 +143,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateHandler: {fileID: 114415770298916718}
+  _enterDefaultState: 1
   _defaultState:
     _type:
       _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -267,9 +268,8 @@ MonoBehaviour:
   _index:
     _current: 0
     Count: 2
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
+  maxLeft: 2
+  maxRight: 1.5
 --- !u!114 &114593001956332608
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -103,6 +103,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _stateHandler: {fileID: 114884403990445786}
+  _enterDefaultState: 1
   _defaultState:
     _type:
       _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -159,7 +160,7 @@ MonoBehaviour:
   _teleportDistance: 1.5
   _useBounds: 1
   _bounds:
-    MinHeight: -3.61
+    MinHeight: -1.2
     MaxHeight: 3.61
     MinWidth: -2.96
     MaxWidth: 2.16

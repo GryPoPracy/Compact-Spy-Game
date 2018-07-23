@@ -19,16 +19,6 @@ public partial class CameraLocomotionState2DSettings : MonoBehaviour
 
     [SerializeField] private bool _useBounds = true;
     public bool UseBounds { get { return _useBounds; } }
-    [SerializeField] private OrthogtaphicCameraBounds _bounds = new OrthogtaphicCameraBounds();
-    public OrthogtaphicCameraBounds Bounds { get { return _bounds; } }
 
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawLine(new Vector3(_bounds.MinWidth, _bounds.MaxHeight, 0f), new Vector3(_bounds.MaxWidth, _bounds.MaxHeight, 0f));
-        Gizmos.DrawLine(new Vector3(_bounds.MaxWidth, _bounds.MaxHeight, 0f), new Vector3(_bounds.MaxWidth, _bounds.MinHeight, 0f));
-        Gizmos.DrawLine(new Vector3(_bounds.MinWidth, _bounds.MaxHeight, 0f), new Vector3(_bounds.MinWidth, _bounds.MinHeight, 0f));
-        Gizmos.DrawLine(new Vector3(_bounds.MinWidth, _bounds.MinHeight, 0f), new Vector3(_bounds.MaxWidth, _bounds.MinHeight, 0f));
-    }
+    public OrthogtaphicCameraBounds Bounds { get { return LevelInfo.Instance.LevelBounds; } }
 }

@@ -27,8 +27,9 @@ namespace Character
         private void Update()
         {
             var end = this.transform.position + (spriteRenderer.flipX ? -transform.right : transform.right) * _detectionDistance;
+
             RaycastHit2D hit2D = Physics2D.Linecast(this.transform.position, end, layerMask);
-            Debug.DrawLine(this.transform.position, end);
+
             IState state = null;
             if (hit2D)
             {
@@ -50,6 +51,14 @@ namespace Character
         private void OnValidate()
         {
             _instantDetectionDistance = _instantDetectionDistance > _detectionDistance ? _detectionDistance : _instantDetectionDistance;
+        }
+
+        private void OnDrawGizmos()
+        {
+            var end = this.transform.position + (spriteRenderer.flipX ? -transform.right : transform.right) * _detectionDistance;
+            var instantEnd = this.transform.position + (spriteRenderer.flipX ? -transform.right : transform.right) * _instantDetectionDistance;
+            Debug.DrawLine(this.transform.position, end, Color.yellow);
+            Debug.DrawLine(this.transform.position, instantEnd, Color.red);
         }
     }
 
