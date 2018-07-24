@@ -10,3 +10,6 @@
 [submodule "Assets/Content/Code/Utilities"]
 	path = Assets/Content/Code/Utilities
 	url = https://github.com/ukidabek/Utilities.git
+[submodule "Assets/Content/Code/MapGenerator"]
+	path = Assets/Content/Code/MapGenerator
+	url = https://github.com/ukidabek/MapGenerator.git
