@@ -12,4 +12,7 @@ public class GenerationSettings : MonoBehaviour
 
     [SerializeField] private int _levelBoxSize = 2;
     public int LevelBoxSize { get { return _levelBoxSize; } }
+
+    [SerializeField] private List<GameObject> _staircasePrefabList = new List<GameObject>();
+    public GameObject StarCaseInstance { get { return Instantiate(_staircasePrefabList[Random.Range(0, _staircasePrefabList.Count)]); } }
 }

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4366708272791944}
   - component: {fileID: 114059023955494498}
+  - component: {fileID: 114103996586718614}
   m_Layer: 0
   m_Name: GenerationSettings
   m_TagString: Untagged
@@ -37,6 +38,7 @@ GameObject:
   - component: {fileID: 4269693703221704}
   - component: {fileID: 114235140035573800}
   - component: {fileID: 114721048519786530}
+  - component: {fileID: 114927104568790860}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -88,6 +90,20 @@ MonoBehaviour:
   - {fileID: 1305934966908454, guid: 0faad289cab734e428af6281d5bfe547, type: 2}
   - {fileID: 1897727836950222, guid: 638ad09e592e1c948a520d0c917903f3, type: 2}
   - {fileID: 1387226928142048, guid: 924a7beb385102142a89db870b7e2b8a, type: 2}
+  _levelBoxSize: 2
+--- !u!114 &114103996586718614
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1153656441686980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf406b65afebc6b4297d58560c024734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _level:
+    _flors: []
 --- !u!114 &114235140035573800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +122,7 @@ MonoBehaviour:
   - {fileID: 114721048519786530}
   _generationData:
   - {fileID: 114059023955494498}
+  - {fileID: 114103996586718614}
   GenerationStarted:
     m_PersistentCalls:
       m_Calls: []
@@ -140,6 +157,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d04175b92be743f43887b9f796074ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  _pause: 0
+--- !u!114 &114927104568790860
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509064025346370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21b3294af2fb2ce4aa41115a40c9a766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDone: 0

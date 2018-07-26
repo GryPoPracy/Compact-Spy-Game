@@ -5,12 +5,25 @@ using UnityEngine;
 
 public class TeleportPlayerAction : BaseAction
 {
-    [SerializeField] Transform _destination = null;
+    [SerializeField] private Vector3 _destination = Vector3.zero;
+    public Vector3 Destination
+    {
+        get { return _destination; }
+        set { _destination = value; }
+    }
 
     public override void Perform(params object[] list)
     {
         var objectToTeleport = SelectObjectForData<GameObject>(list);
-        if (_destination != null && objectToTeleport != null)
-            objectToTeleport.transform.position = _destination.position;
+        if (Destination != null && objectToTeleport != null)
+            objectToTeleport.transform.position = Destination;
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Vector3 position = Destination;
+        Gizmos.DrawLine(position - Vector3.right * .145f, position + Vector3.right * .145f);
+        Gizmos.DrawLine(position, position + Vector3.up * .25f);
     }
 }

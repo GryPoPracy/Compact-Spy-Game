@@ -62,7 +62,7 @@ namespace Character
 
         private void Start()
         {
-            _path = new Path(this.transform.position, _maxLeft, _maxRight, LevelInfo.Instance.LevelBounds.MinWidth, LevelInfo.Instance.LevelBounds.MaxWidth);
+            _path = new Path(this.transform.position, _maxLeft, _maxRight, LevelMetadata.Instance.LevelBounds.MinWidth, LevelMetadata.Instance.LevelBounds.MaxWidth);
             _currenntCommand = new Command(_path[_index], Vector3.zero, null);
         }
 

@@ -113,6 +113,12 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &1772539719 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114927104568790860, guid: 9ef015038f3d09a4abcce51d0513d26c,
+    type: 2}
+  m_PrefabInternal: {fileID: 2067923939}
+  m_Script: {fileID: 11500000, guid: 21b3294af2fb2ce4aa41115a40c9a766, type: 3}
 --- !u!1001 &2067923939
 Prefab:
   m_ObjectHideFlags: 0
@@ -120,6 +126,16 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 114235140035573800, guid: 9ef015038f3d09a4abcce51d0513d26c,
+        type: 2}
+      propertyPath: _phaseObjectList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114059023955494498, guid: 9ef015038f3d09a4abcce51d0513d26c,
+        type: 2}
+      propertyPath: _staircasePrefabList.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4269693703221704, guid: 9ef015038f3d09a4abcce51d0513d26c, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -152,6 +168,17 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114235140035573800, guid: 9ef015038f3d09a4abcce51d0513d26c,
+        type: 2}
+      propertyPath: _phaseObjectList.Array.data[1]
+      value: 
+      objectReference: {fileID: 1772539719}
+    - target: {fileID: 114059023955494498, guid: 9ef015038f3d09a4abcce51d0513d26c,
+        type: 2}
+      propertyPath: _staircasePrefabList.Array.data[0]
+      value: 
+      objectReference: {fileID: 1782008988743246, guid: bba3850f6eb4a644a85e0bc1439c5384,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9ef015038f3d09a4abcce51d0513d26c, type: 2}
   m_IsPrefabAsset: 0
