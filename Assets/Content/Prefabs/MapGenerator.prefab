@@ -39,6 +39,7 @@ GameObject:
   - component: {fileID: 114235140035573800}
   - component: {fileID: 114721048519786530}
   - component: {fileID: 114927104568790860}
+  - component: {fileID: 114705422189361768}
   m_Layer: 0
   m_Name: MapGenerator
   m_TagString: Untagged
@@ -90,7 +91,13 @@ MonoBehaviour:
   - {fileID: 1305934966908454, guid: 0faad289cab734e428af6281d5bfe547, type: 2}
   - {fileID: 1897727836950222, guid: 638ad09e592e1c948a520d0c917903f3, type: 2}
   - {fileID: 1387226928142048, guid: 924a7beb385102142a89db870b7e2b8a, type: 2}
-  _levelBoxSize: 2
+  _staircasePrefabList:
+  - {fileID: 1782008988743246, guid: bba3850f6eb4a644a85e0bc1439c5384, type: 2}
+  _groundLevel: 0.16
+  _playerObject: {fileID: 1372406359291904, guid: 74d1e803b4daf0f47ac02d3fda63d42a,
+    type: 2}
+  _cameraObject: {fileID: 1233562085327532, guid: 1d9b56b74095a5d46b3e336de80f41ee,
+    type: 2}
 --- !u!114 &114103996586718614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -102,8 +109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf406b65afebc6b4297d58560c024734, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
   _level:
     _flors: []
+  _levelBounds:
+    MinHeight: 0
+    MaxHeight: 0
+    MinWidth: 0
+    MaxWidth: 0
 --- !u!114 &114235140035573800
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -120,6 +133,7 @@ MonoBehaviour:
   _phaseIndex: 0
   _phaseObjectList:
   - {fileID: 114721048519786530}
+  - {fileID: 114927104568790860}
   _generationData:
   - {fileID: 114059023955494498}
   - {fileID: 114103996586718614}
@@ -148,6 +162,19 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114705422189361768
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509064025346370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1963c7d74cd806c4489db940b31a510f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isDone: 0
+  _pause: 0
 --- !u!114 &114721048519786530
 MonoBehaviour:
   m_ObjectHideFlags: 1

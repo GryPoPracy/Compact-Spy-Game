@@ -11,11 +11,11 @@ public class Room : MonoBehaviour
     [SerializeField] private float _groundLevel = .1f;
     public float GroundLevel { get { return _groundLevel; } }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Vector3 start = this.transform.position + Vector3.up * _groundLevel;
-        Vector3 end = start + Vector3.right * 2;
-        Gizmos.DrawLine(start, end);
-    }
+    //private void OnDrawGizmos()
+    //{
+    //    Gizmos.color = Color.red;
+    //    Vector3 start = this.transform.position + Vector3.up * _groundLevel;
+    //    Vector3 end = start + Vector3.right * 2;
+    //    Gizmos.DrawLine(start, end);
+    //}
 }

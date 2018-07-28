@@ -3762,6 +3762,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1121476492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1121476494}
+  - component: {fileID: 1121476493}
+  m_Layer: 0
+  m_Name: LevelMetadata
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1121476493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121476492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf406b65afebc6b4297d58560c024734, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  _level:
+    _flors: []
+  _levelBounds:
+    MinHeight: -1.19
+    MaxHeight: 3.62
+    MinWidth: -2.96
+    MaxWidth: 2.16
+--- !u!4 &1121476494
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1121476492}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1124663485
 GameObject:
   m_ObjectHideFlags: 0
@@ -6007,10 +6055,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 10
       objectReference: {fileID: 0}
-    - target: {fileID: 4846901375067290, guid: 74d1e803b4daf0f47ac02d3fda63d42a, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74d1e803b4daf0f47ac02d3fda63d42a, type: 2}
   m_IsPrefabAsset: 0
@@ -6403,6 +6447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b3900c2798ec4449b7adc714b2d8fa8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GizmoColor: {r: 0, g: 0, b: 1, a: 1}
   _destination: {x: -0.87, y: 0.08, z: 0}
 --- !u!114 &1937130451
 MonoBehaviour:
@@ -7389,6 +7434,10 @@ Prefab:
         type: 2}
       propertyPath: _maxRight
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730223544929452, guid: 94ba8b6c738a94d46a7786da4ae59411, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 94ba8b6c738a94d46a7786da4ae59411, type: 2}

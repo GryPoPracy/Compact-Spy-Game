@@ -15,10 +15,15 @@ public class LevelMetadata : Singleton<LevelMetadata>
             public List<Room> Rooms { get { return _rooms; } }
 
             public float Height { get { return _rooms[0].transform.position.y; } }
-            public float GroundLevel { get { return _rooms[0].GroundLevel; } }
+            [SerializeField] private float _groundLevel = .1f;
+            public float GroundLevel { get { return _groundLevel; } }
             private float _width = 0;
             public float Width { get { return _width; } }
 
+            public Flor(float groundLevel)
+            {
+                _groundLevel = groundLevel;
+            }
 
             public void AddRoom(Room room)
             {
@@ -39,9 +44,9 @@ public class LevelMetadata : Singleton<LevelMetadata>
             }
         }
 
-        public void AddFlor()
+        public void AddFlor(float groundLevel)
         {
-            _flors.Add(new Flor());
+            _flors.Add(new Flor(groundLevel));
         }
 
         public GameObject this [int x, int y]
@@ -63,6 +68,14 @@ public class LevelMetadata : Singleton<LevelMetadata>
         Gizmos.DrawLine(new Vector3(_levelBounds.MaxWidth, _levelBounds.MaxHeight, 0f), new Vector3(_levelBounds.MaxWidth, _levelBounds.MinHeight, 0f));
         Gizmos.DrawLine(new Vector3(_levelBounds.MinWidth, _levelBounds.MaxHeight, 0f), new Vector3(_levelBounds.MinWidth, _levelBounds.MinHeight, 0f));
         Gizmos.DrawLine(new Vector3(_levelBounds.MinWidth, _levelBounds.MinHeight, 0f), new Vector3(_levelBounds.MaxWidth, _levelBounds.MinHeight, 0f));
-    }
 
+        Gizmos.color = Color.blue;
+        for (int i = 0; i < LevelData.Flors.Count; i++)
+        {
+            var florTransform = LevelData[0, i].transform;
+            Gizmos.DrawLine(
+                florTransform.position + (florTransform.up * LevelData.Flors[i].GroundLevel), 
+                florTransform.position + (florTransform.right * LevelData.Flors[i].Width) + (florTransform.up * LevelData.Flors[i].GroundLevel));
+        }
+    }
 }

@@ -122,7 +122,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 255a24dcb1ffbd94bafca529ab5958dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 0.8
+  _speed: 3
   _distanceSpeedMultiplier:
     serializedVersion: 2
     m_Curve:
@@ -156,14 +156,9 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _cameraOffser: {x: 0, y: 0, z: -10}
+  _cameraOffser: {x: 0, y: 0.8, z: -10}
   _teleportDistance: 1.5
   _useBounds: 1
-  _bounds:
-    MinHeight: -1.2
-    MaxHeight: 3.61
-    MinWidth: -2.96
-    MaxWidth: 2.16
 --- !u!114 &114884403990445786
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -17,10 +17,12 @@ public class LevelGenerationPhase : BaseDungeonGenerationPhaseMonoBehaviour
 
         for (int i = 0; i < levelSize.x; i++)
         {
-            levelMetadata.LevelData.AddFlor();
+            GameObject floarObject = new GameObject(string.Format("Flor {0}", i));
+            levelMetadata.LevelData.AddFlor(settings.GroundLevel);
             for (int j = 0; j < levelSize.y; j++)
             {
-                var instance = GetBoxInstance();
+                var instance = settings.LevelBoxInstance;
+                instance.transform.SetParent(floarObject.transform);
                 var room = instance.GetComponent<Room>();
                 if(room != null)
                 {
@@ -34,13 +36,10 @@ public class LevelGenerationPhase : BaseDungeonGenerationPhaseMonoBehaviour
                 }
                 yield return null;
             }
+            levelMetadata.LevelBounds.MaxWidth = levelMetadata.LevelBounds.MaxWidth < levelMetadata.LevelData.Flors[i].Width ? levelMetadata.LevelData.Flors[i].Width : levelMetadata.LevelBounds.MaxWidth;
+            levelMetadata.LevelBounds.MaxHeight = levelMetadata.LevelData.Flors[i].Height + levelMetadata.LevelData.Flors[i].Rooms[0].Size.y;
         }
 
         _isDone = true;
-    }
-
-    private GameObject GetBoxInstance()
-    {
-        return Instantiate(settings.LevelPrefabBoxList[Random.Range(0, settings.LevelPrefabBoxList.Count)]);
     }
 }

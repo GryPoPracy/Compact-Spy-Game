@@ -8,11 +8,17 @@ public class GenerationSettings : MonoBehaviour
     public Vector2Int StartLevelSize { get { return _startLevelSize; } }
 
     [SerializeField] private List<GameObject> _levelPrefabBoxList = new List<GameObject>();
-    public List<GameObject> LevelPrefabBoxList { get { return _levelPrefabBoxList; } }
-
-    [SerializeField] private int _levelBoxSize = 2;
-    public int LevelBoxSize { get { return _levelBoxSize; } }
+    public GameObject LevelBoxInstance {  get { return Instantiate(_levelPrefabBoxList[Random.Range(0, _levelPrefabBoxList.Count)]); } }
 
     [SerializeField] private List<GameObject> _staircasePrefabList = new List<GameObject>();
     public GameObject StarCaseInstance { get { return Instantiate(_staircasePrefabList[Random.Range(0, _staircasePrefabList.Count)]); } }
+
+    [SerializeField] private float _groundLevel = .1f;
+    public float GroundLevel { get { return _groundLevel; } }
+
+    [SerializeField] private GameObject _playerObject = null;
+    public GameObject PlayerObject { get { return _playerObject; } }
+
+    [SerializeField] private GameObject _cameraObject = null;
+    public GameObject CameraObject { get { return _cameraObject; } }
 }

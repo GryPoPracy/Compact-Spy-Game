@@ -13,17 +13,29 @@ public class StaircaseGenerationPhase : BaseDungeonGenerationPhaseMonoBehaviour
         settings = LevelGenerator.GetMetaDataObject<GenerationSettings>(generationData);
         levelMetadata = LevelGenerator.GetMetaDataObject<LevelMetadata>(generationData);
 
+        bool lastRoom = true;
+
         for (int i = 0; i < levelMetadata.LevelData.Flors.Count; i++)
         {
-            LevelMetadata.Level.Flor flor = levelMetadata.LevelData.Flors[i];
             GameObject instance = null;
-            if(i < levelMetadata.LevelData.Flors.Count - 1)
+            LevelMetadata.Level.Flor flor = levelMetadata.LevelData.Flors[i];
+            if (i < levelMetadata.LevelData.Flors.Count - 1)
             {
                 instance = settings.StarCaseInstance;
-                instance.transform.position = new Vector3(0, flor.Height + flor.GroundLevel, 0);
+                var room = levelMetadata.LevelData.Flors[i].Rooms[lastRoom ? levelMetadata.LevelData.Flors[i].Rooms.Count - 1 : 0];
+                var position = room.gameObject.transform.position;
+                position = position + (room.gameObject.transform.right * (room.Size.x / 2)) + room.gameObject.transform.up * levelMetadata.LevelData.Flors[i].GroundLevel;
+                instance.transform.position = position;
                 var nextFlor = levelMetadata.LevelData.Flors[i + 1];
                 var teleport = instance.GetComponent<TeleportPlayerAction>();
-                teleport.Destination = new Vector3(0, nextFlor.Height + nextFlor.GroundLevel, 0);
+                teleport.GizmoColor = Color.green;
+                teleport.Destination = new Vector3(position.x, nextFlor.Height + nextFlor.GroundLevel, position.z);
+                instance = settings.StarCaseInstance;
+                instance.transform.position = teleport.Destination;
+                teleport = instance.GetComponent<TeleportPlayerAction>();
+                teleport.GizmoColor = Color.red;
+                teleport.Destination = position;
+                lastRoom = !lastRoom;
             }
             yield return null;
         }

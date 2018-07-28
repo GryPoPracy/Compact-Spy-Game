@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class TeleportPlayerAction : BaseAction
 {
+    public Color GizmoColor = new Color(0,0,1,1); 
     [SerializeField] private Vector3 _destination = Vector3.zero;
     public Vector3 Destination
     {
@@ -21,7 +22,7 @@ public class TeleportPlayerAction : BaseAction
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.blue;
+        Gizmos.color = GizmoColor;
         Vector3 position = Destination;
         Gizmos.DrawLine(position - Vector3.right * .145f, position + Vector3.right * .145f);
         Gizmos.DrawLine(position, position + Vector3.up * .25f);

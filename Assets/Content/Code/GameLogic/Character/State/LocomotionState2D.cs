@@ -2,9 +2,6 @@
 using BaseGameLogic.Utilities;
 using Interactions;
 using Character;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LocomotionState2D : IState, IOnUpdate, IOnSleep
