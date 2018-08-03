@@ -21,7 +21,7 @@ public class LevelGenerationPhase : BaseDungeonGenerationPhaseMonoBehaviour
             levelMetadata.LevelData.AddFlor(settings.GroundLevel);
             for (int j = 0; j < levelSize.y; j++)
             {
-                var instance = settings.LevelBoxInstance;
+                var instance = j == 0 ? settings.LevelBoxLeftEdgeInstance : j == levelSize.y - 1 ? settings.LevelBoxRightEdgeInstance : settings.LevelBoxInstance;
                 instance.transform.SetParent(floarObject.transform);
                 var room = instance.GetComponent<Room>();
                 if(room != null)

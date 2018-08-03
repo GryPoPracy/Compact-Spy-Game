@@ -91,6 +91,10 @@ MonoBehaviour:
   - {fileID: 1305934966908454, guid: 0faad289cab734e428af6281d5bfe547, type: 2}
   - {fileID: 1897727836950222, guid: 638ad09e592e1c948a520d0c917903f3, type: 2}
   - {fileID: 1387226928142048, guid: 924a7beb385102142a89db870b7e2b8a, type: 2}
+  _levelPrefabBoxLeftEdgeList:
+  - {fileID: 1492168987617318, guid: 7b7e7d4a9234ab94e8a83d63efee46fa, type: 2}
+  _levelPrefabBoxRightEdgeList:
+  - {fileID: 1387226928142048, guid: 924a7beb385102142a89db870b7e2b8a, type: 2}
   _staircasePrefabList:
   - {fileID: 1782008988743246, guid: bba3850f6eb4a644a85e0bc1439c5384, type: 2}
   _groundLevel: 0.16
@@ -134,6 +138,7 @@ MonoBehaviour:
   _phaseObjectList:
   - {fileID: 114721048519786530}
   - {fileID: 114927104568790860}
+  - {fileID: 114705422189361768}
   _generationData:
   - {fileID: 114059023955494498}
   - {fileID: 114103996586718614}
@@ -159,7 +164,29 @@ MonoBehaviour:
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
   GenerationCompleted:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 0}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &114705422189361768

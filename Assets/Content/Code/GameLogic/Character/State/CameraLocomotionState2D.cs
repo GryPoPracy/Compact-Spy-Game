@@ -23,23 +23,12 @@ public class CameraLocomotionState2D : IState, IOnLateUpdate
 
     public void OnLateUpdate()
     {
-        float x = _camera.orthographicSize * _camera.aspect;
-        Vector3 cameraPosition = _camera.transform.position;
-        cameraPosition.z = 0;
-        float distance = Vector3.Distance(cameraPosition, PlayerTransform.position);
-        if(distance > _cameraLocomotionState2DSettings.TeleportDistance)
-        {
-            var position = PlayerTransform.position;
-            position.z = _cameraLocomotionState2DSettings.CameraOffset.z;
-            _camera.transform.position = position;
-        }
-
-        float multimultiplier = _cameraLocomotionState2DSettings.DistanceSpeedMultiplier.Evaluate(distance);
         _camera.transform.position = Vector3.MoveTowards(
             _camera.transform.position, 
             PlayerTransform.position + _cameraLocomotionState2DSettings.CameraOffset, 
-            _cameraLocomotionState2DSettings.Speed * Time.deltaTime * multimultiplier);
-        if(_cameraLocomotionState2DSettings.UseBounds)
+            _cameraLocomotionState2DSettings.Speed * Time.deltaTime);
+
+        if (_cameraLocomotionState2DSettings.UseBounds)
             constraint.ForceBoundaries();
     }
 }

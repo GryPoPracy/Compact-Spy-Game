@@ -9,8 +9,6 @@ public class SpawnPlayerPhase : BaseDungeonGenerationPhaseMonoBehaviour
     private GenerationSettings settings = null;
     private LevelMetadata levelMetadata = null;
 
-    private List<BaseStateProvider> baseStateProviders = new List<BaseStateProvider>();
-
     public override IEnumerator Generate(LevelGenerator generator, object[] generationData)
     {
         settings = LevelGenerator.GetMetaDataObject<GenerationSettings>(generationData);
@@ -23,15 +21,10 @@ public class SpawnPlayerPhase : BaseDungeonGenerationPhaseMonoBehaviour
 
         var instance = Instantiate(settings.PlayerObject);
         instance.transform.position = position;
-        baseStateProviders.Add(instance.GetComponentInChildren<BaseStateProvider>());
 
         instance = Instantiate(settings.CameraObject);
         float z = instance.transform.position.z;
         instance.transform.position = new Vector3(position.x, position.y, z);
-        baseStateProviders.Add(instance.GetComponentInChildren<BaseStateProvider>());
-
-        for (int i = 0; i < baseStateProviders.Count; i++)
-            baseStateProviders[i].EnterDefaultState();
 
         yield return null;
         _isDone = true;
