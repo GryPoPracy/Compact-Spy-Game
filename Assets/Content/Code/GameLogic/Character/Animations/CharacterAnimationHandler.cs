@@ -33,4 +33,7 @@ public class CharacterAnimationHandler : MonoBehaviour
 
     [SerializeField] private AnimatorParametr _run = new AnimatorParametr();
     public AnimatorParametr Run { get { return _run; } }
+
+    [SerializeField] private AnimatorParametr _hack = new AnimatorParametr();
+    public AnimatorParametr Hack { get { return _hack; } }
 }

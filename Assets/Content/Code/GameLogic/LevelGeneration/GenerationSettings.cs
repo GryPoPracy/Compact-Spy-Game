@@ -34,6 +34,9 @@ public class GenerationSettings : MonoBehaviour
     [SerializeField] private GameObject _cameraObject = null;
     public GameObject CameraObject { get { return _cameraObject; } }
 
+    [SerializeField] private List<GameObject> _objectsToSpanw = new List<GameObject>();
+    public List<GameObject> ObjectsToSpanw { get { return _objectsToSpanw; } }
+
     private void Awake()
     {
         _levelBoxSelector = new ListRandomSelektor(_levelPrefabBoxList);

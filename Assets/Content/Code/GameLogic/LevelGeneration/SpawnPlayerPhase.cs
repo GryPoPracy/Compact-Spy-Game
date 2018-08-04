@@ -14,6 +14,12 @@ public class SpawnPlayerPhase : BaseDungeonGenerationPhaseMonoBehaviour
         settings = LevelGenerator.GetMetaDataObject<GenerationSettings>(generationData);
         levelMetadata = LevelGenerator.GetMetaDataObject<LevelMetadata>(generationData);
 
+        for (int i = 0; i < settings.ObjectsToSpanw.Count; i++)
+        {
+            Instantiate(settings.ObjectsToSpanw[i]);
+            yield return null;
+        }
+
         var room = levelMetadata.LevelData.Flors[0].Rooms[0];
         var position = room.transform.position;
         position.x += room.Size.x / 2;
@@ -27,6 +33,7 @@ public class SpawnPlayerPhase : BaseDungeonGenerationPhaseMonoBehaviour
         instance.transform.position = new Vector3(position.x, position.y, z);
 
         yield return null;
+
         _isDone = true;
     }
 }

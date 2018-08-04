@@ -79,7 +79,7 @@ GameObject:
   - component: {fileID: 114843955347282174}
   - component: {fileID: 114136013900486368}
   m_Layer: 0
-  m_Name: Eagle
+  m_Name: Opossum
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -268,8 +268,8 @@ MonoBehaviour:
   _index:
     _current: 0
     Count: 2
-  maxLeft: 2
-  maxRight: 1.5
+  _maxLeft: 0
+  _maxRight: 0
 --- !u!114 &114593001956332608
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -320,6 +320,9 @@ MonoBehaviour:
   _run:
     _name: Run
     _nameHash: 1748754976
+  _hack:
+    _name: 
+    _nameHash: 0
 --- !u!114 &114925654054307062
 MonoBehaviour:
   m_ObjectHideFlags: 1
