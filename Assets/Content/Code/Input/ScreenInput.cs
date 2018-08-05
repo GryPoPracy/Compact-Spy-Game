@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using BaseGameLogic.Singleton;
 using System;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 
 namespace BaseGameLogic.Inputs.Screen
 {
@@ -18,11 +19,10 @@ namespace BaseGameLogic.Inputs.Screen
         [SerializeField] private List<ScreenClick> _clickHandlers = new List<ScreenClick>();
         [SerializeField] private LayerMask _detectObjectLayer = new LayerMask();
 
-        [Obsolete("")]
         public ObjectSelectedCallback ObjectSelectedCallback = new ObjectSelectedCallback();
         public ObjectSelected2DCallback ObjectSelected2DCallback = new ObjectSelected2DCallback();
-             
-        void Update()
+
+        private void Update()
         {
             for (int i = 0; i < _clickHandlers.Count; i++)
                 if (_clickHandlers[i].IsPositive)
@@ -40,6 +40,7 @@ namespace BaseGameLogic.Inputs.Screen
                     var collider =  Physics2D.OverlapPoint(worldPosition);
                     ObjectSelected2DCallback.Invoke(new ClickInfo2D(worldPosition, collider));
                     break;
+
                 case Mode.Physics3D:
                     worldPosition = _camera.Camera.ScreenToWorldPoint(onScrennPosition);
                     Ray ray = _camera.Camera.ScreenPointToRay(onScrennPosition);
@@ -47,7 +48,7 @@ namespace BaseGameLogic.Inputs.Screen
                     if (Physics.Raycast(ray, out hit, _detectObjectLayer))
                     {
                         Debug.DrawLine(ray.origin, hit.point, Color.green, 1f);
-                        ObjectSelectedCallback.Invoke(hit.point, hit.normal, hit.rigidbody, hit.collider.gameObject);
+                        ObjectSelectedCallback.Invoke(new ClickInfo(hit));
                     }
                     break;
             }
@@ -57,48 +58,34 @@ namespace BaseGameLogic.Inputs.Screen
     public class ClickInfo2D
     {
         public readonly Vector3 WorldPosition = Vector3.zero;
-        public readonly Rigidbody2D Rigidbody2D = null;
+        public Rigidbody2D Rigidbody2D { get { return Collider.attachedRigidbody; } }
         public readonly Collider2D Collider = null;
-        public readonly GameObject GameObject = null;
+        public GameObject GameObject { get { return Collider == null ? null : Collider.gameObject; } }
 
         public ClickInfo2D(Vector3 worldPosition, Collider2D collider)
         {
             WorldPosition = worldPosition;
-            if((Collider = collider) != null)
-            {
-                Rigidbody2D = collider.attachedRigidbody;
-                GameObject = collider.gameObject;
-            }
-        }
-
-        public ClickInfo2D(Vector3 worldPosition, Rigidbody2D rigidbody2D, GameObject gameObject)
-        {
-            WorldPosition = worldPosition;
-            Rigidbody2D = rigidbody2D;
-            GameObject = gameObject;
+            Collider = collider;
         }
     }
 
     public class ClickInfo
     {
-        public readonly Vector3 WorldPosition = Vector3.zero;
-        public readonly Vector3 HitPoint = Vector3.zero;
-        public readonly Vector3 Normal = Vector3.zero;
-        public readonly Rigidbody Rigidbody = null;
-        public readonly GameObject GameObject = null;
+        private RaycastHit hitInfo;
+        public Vector3 WorldPosition = Vector3.zero;
+        public Collider Collider { get { return hitInfo.collider; } }
+        public Vector3 HitPoint { get { return hitInfo.point; } }
+        public Vector3 Normal { get { return hitInfo.normal; } }
+        public Rigidbody Rigidbody { get { return hitInfo.rigidbody; } }
+        public GameObject GameObject { get { return hitInfo.collider.gameObject; } }
 
-        public ClickInfo(Vector3 worldPosition, Vector3 hitPoint, Vector3 normal, Rigidbody rigidbody, GameObject gameObject)
+        public ClickInfo(RaycastHit hitInfo)
         {
-            WorldPosition = worldPosition;
-            HitPoint = hitPoint;
-            Normal = normal;
-            Rigidbody = rigidbody;
-            GameObject = gameObject;
+            this.hitInfo = hitInfo;
         }
     }
 
-    [Obsolete()]
-    [Serializable] public class ObjectSelectedCallback : UnityEvent<Vector3, Vector3, Rigidbody, GameObject> {}
+    [Serializable] public class ObjectSelectedCallback : UnityEvent<ClickInfo> {}
     [Serializable] public class ObjectSelected2DCallback : UnityEvent<ClickInfo2D> {}
 
 }

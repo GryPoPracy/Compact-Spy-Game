@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114415648204390956}
   - component: {fileID: 114401209668241442}
   - component: {fileID: 114978674390486898}
+  - component: {fileID: 114947360305544088}
   - component: {fileID: 114733614424344992}
   - component: {fileID: 114254151247703806}
   m_Layer: 0
@@ -87,7 +88,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14ff27f1d2f47ec479701be8d57f9137, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 1
   _eventList:
   - _name: PlayerDetected
     event:
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _actionList:
     _actionsList:
-    - {fileID: 114733614424344992}
+    - {fileID: 114947360305544088}
     - {fileID: 114978674390486898}
 --- !u!114 &114415648204390956
 MonoBehaviour:
@@ -184,6 +184,21 @@ MonoBehaviour:
   _actionList:
     _actionsList:
     - {fileID: 114254151247703806}
+--- !u!114 &114947360305544088
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861172060593568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1854d11c78f6df34c8c890064191a01c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionList:
+    _actionsList:
+    - {fileID: 114733614424344992}
+  _secondsToWait: 1
 --- !u!114 &114978674390486898
 MonoBehaviour:
   m_ObjectHideFlags: 1

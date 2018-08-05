@@ -12,16 +12,18 @@ public class CaughtCanvas : Singleton<CaughtCanvas>
     private Coroutine coroutine = null;
 
     [Space] public FadeUpdateCallback _fadeUpdateCallback = new FadeUpdateCallback();
+    public UnityEvent OnFadingIn = new UnityEvent();
     public UnityEvent OnFadedIn = new UnityEvent();
+    public UnityEvent OnFadingOut = new UnityEvent();
     public UnityEvent OnFadedOut = new UnityEvent();
-
 
     public bool FadedIn { get { return _fadeStatus >= 1f; } }
     public bool FadedOut { get { return _fadeStatus <= 0f; } }
 
     private IEnumerator FadeInCorutine()
     {
-        while(_fadeStatus < 1f)
+        OnFadingIn.Invoke();
+        while (_fadeStatus < 1f)
         {
             _fadeStatus = Mathf.MoveTowards(_fadeStatus, 1f, _fadeSpeed * Time.deltaTime);
             _fadeUpdateCallback.Invoke(_fadeStatus);
@@ -32,6 +34,7 @@ public class CaughtCanvas : Singleton<CaughtCanvas>
 
     private IEnumerator FadeOutCorutine()
     {
+        OnFadingOut.Invoke();
         while (_fadeStatus > 0f)
         {
             _fadeStatus = Mathf.MoveTowards(_fadeStatus, 0f, _fadeSpeed * Time.deltaTime);

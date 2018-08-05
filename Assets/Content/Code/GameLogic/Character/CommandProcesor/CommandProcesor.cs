@@ -1,17 +1,25 @@
 ﻿using BaseGameLogic.Inputs.Screen;
+using BaseGameLogic.Singleton;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Character
 {
-    public partial class CommandProcesor : MonoBehaviour, ISupervisor
+    public partial class CommandProcesor : Singleton<CommandProcesor>, ISupervisor
     {
-        private Command _command = null;
-        public Command CurrenntCommand { get { return _command; } }
+        public enum CommadStering { Player, Skill }
 
-        void Start()
+        public CommadStering Stering = CommadStering.Player;
+
+        private Command _playerCommand = null;
+        private Command _skillCommad = null;
+
+        public Command CurrenntCommand { get { return _playerCommand; } }
+
+        protected override void Start()
         {
+            base.Start();
             if (ScreenInput.Instance != null)
             {
                 ScreenInput.Instance.ObjectSelectedCallback.AddListener(Process);
@@ -21,17 +29,25 @@ namespace Character
 
         private void Process(ClickInfo2D arg0)
         {
-            _command = new Command(arg0.WorldPosition, Vector3.zero, arg0.GameObject);
+            switch (Stering)
+            {
+                case CommadStering.Player:
+                    _playerCommand = new Command(arg0.WorldPosition, Vector3.zero, arg0.GameObject);
+                    break;
+                case CommadStering.Skill:
+                    _skillCommad = new Command(arg0.WorldPosition, Vector3.zero, arg0.GameObject);
+                    break;
+            }
         }
 
-        private void Process(Vector3 position, Vector3 arg1, Rigidbody arg2, GameObject arg3)
+        private void Process(ClickInfo arg1)
         {
-            _command = new Command(position, arg3);
+            _playerCommand = new Command(arg1.WorldPosition, arg1.GameObject);
         }
 
         public void Consume()
         {
-            _command = null;
+            _playerCommand = null;
         }
     }
 }
