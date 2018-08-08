@@ -8,7 +8,7 @@ AnimatorOverrideController:
   m_Name: Opossum
   m_Controller: {fileID: 9100000, guid: 9588619da6a04204785c7a88d2f0f2e4, type: 2}
   m_Clips:
-  - m_OriginalClip: {fileID: 7400000, guid: 2a67b9f206d55bb4ca7f830d0d85e83f, type: 2}
-    m_OverrideClip: {fileID: 7400000, guid: de25038d19befca458e58abc2d0b2019, type: 2}
   - m_OriginalClip: {fileID: 7400000, guid: 0d2378a9e4d3a9142b964a1d982921ab, type: 2}
     m_OverrideClip: {fileID: 7400000, guid: bf42d639342d1dd4c8e6b48ad1f73b47, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 8cc92d0f49e111e46b59268c89e8e43f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: de25038d19befca458e58abc2d0b2019, type: 2}

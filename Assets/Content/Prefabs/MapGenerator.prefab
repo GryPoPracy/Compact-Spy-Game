@@ -95,6 +95,10 @@ MonoBehaviour:
   - {fileID: 1492168987617318, guid: 62ca3c75f36363a46b1b6198cf84f2ac, type: 2}
   _levelPrefabBoxRightEdgeList:
   - {fileID: 1492168987617318, guid: 44e3a1ea9f1488948a2c833ee2f3453b, type: 2}
+  _startFlorIndex: 1
+  _enemyPrefabList:
+  - {fileID: 1730223544929452, guid: 94ba8b6c738a94d46a7786da4ae59411, type: 2}
+  _ennemySpawnChance: 1
   _staircasePrefabList:
   - {fileID: 1782008988743246, guid: bba3850f6eb4a644a85e0bc1439c5384, type: 2}
   _groundLevel: 0.16
@@ -107,6 +111,7 @@ MonoBehaviour:
   - {fileID: 1365102711072000, guid: 5aeffee9584c7ab479652c882a2ad23e, type: 2}
   - {fileID: 1446034727169518, guid: c87207f42edfde940a569767886cb1bb, type: 2}
   - {fileID: 1810831938023092, guid: d8f47a9dad039904ea4ed20f249e5caf, type: 2}
+  - {fileID: 1483734295102390, guid: 3bd97c059b7ee5345818d84896fdcbf9, type: 2}
 --- !u!114 &114103996586718614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,7 +207,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1509064025346370}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1963c7d74cd806c4489db940b31a510f, type: 3}
+  m_Script: {fileID: 11500000, guid: 249df84d1a8375d4caf65af5a5b588e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _isDone: 0

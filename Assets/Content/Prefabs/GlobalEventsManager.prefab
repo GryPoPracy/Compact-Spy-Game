@@ -39,10 +39,12 @@ GameObject:
   - component: {fileID: 114434808159844276}
   - component: {fileID: 114415648204390956}
   - component: {fileID: 114401209668241442}
+  - component: {fileID: 114487822231284036}
   - component: {fileID: 114978674390486898}
   - component: {fileID: 114947360305544088}
   - component: {fileID: 114733614424344992}
   - component: {fileID: 114254151247703806}
+  - component: {fileID: 114756276960364392}
   m_Layer: 0
   m_Name: PlayerDetected
   m_TagString: Untagged
@@ -133,6 +135,7 @@ MonoBehaviour:
     - {fileID: 114434808159844276}
     - {fileID: 114415648204390956}
     - {fileID: 114401209668241442}
+    - {fileID: 114487822231284036}
 --- !u!114 &114401209668241442
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -170,6 +173,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ac1cba3ce51d1b45ac25c799804bda2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114487822231284036
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861172060593568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4de9b35885b90f4d9359e1b25636652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enable: 0
 --- !u!114 &114733614424344992
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -184,6 +199,19 @@ MonoBehaviour:
   _actionList:
     _actionsList:
     - {fileID: 114254151247703806}
+    - {fileID: 114756276960364392}
+--- !u!114 &114756276960364392
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1861172060593568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4de9b35885b90f4d9359e1b25636652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enable: 1
 --- !u!114 &114947360305544088
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -199,6 +227,11 @@ MonoBehaviour:
     _actionsList:
     - {fileID: 114733614424344992}
   _secondsToWait: 1
+  CountdownCallback:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: ActionsSystem.General.CountdownCallback, Assembly-CSharp, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &114978674390486898
 MonoBehaviour:
   m_ObjectHideFlags: 1

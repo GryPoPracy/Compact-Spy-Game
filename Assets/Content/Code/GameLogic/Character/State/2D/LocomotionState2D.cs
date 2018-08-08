@@ -16,7 +16,7 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
 
     private Vector3 _destination = Vector3.zero;
     private IInteraction _interaction = null;
-    private Collider2D _collider = null;
+    private Collider2D _detectedCollider = null;
 
     private Latch _flipLath = new Latch();
 
@@ -43,10 +43,10 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
 
     private void Interact()
     {
-        if (_locomotionState2DSettings.UseInteractions && _interaction != null && _collider.OverlapPoint(_locomotionState2DSettings.ColectPoint.position))
+        if (_locomotionState2DSettings.UseInteractions && _interaction != null && _detectedCollider.OverlapPoint(_locomotionState2DSettings.ColectPoint.position))
         {
             _interaction.Interact(_transform.gameObject, _stateHandler);
-            _collider = null;
+            _detectedCollider = null;
             _interaction = null;
         }
     }
@@ -69,7 +69,7 @@ public class LocomotionState2D : IState, IOnUpdate, IOnSleep
         {
             if(_supervisor.CurrenntCommand.GameObject != null)
             {
-                _collider = _supervisor.CurrenntCommand.GameObject.GetComponent<Collider2D>();
+                _detectedCollider = _supervisor.CurrenntCommand.GameObject.GetComponent<Collider2D>();
                 _interaction = _supervisor.CurrenntCommand.GameObject.GetComponent<IInteraction>();
             }
 

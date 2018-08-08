@@ -13,6 +13,7 @@ namespace Character
         [SerializeField] private SpriteRenderer spriteRenderer = null;
         [SerializeField] private float _detectionDistance = 2f;
         [SerializeField] private float _instantDetectionDistance = 1f;
+        [SerializeField] private Vector3 _detectionVectorOryginOffser = Vector3.zero;
         public DetectionRateUpdate DetectionRateUpdateCallback = new DetectionRateUpdate();
         [SerializeField, Range(0f, 1f)] private float _detection = 0;
         [SerializeField] private float _detectionRate = 1f;
@@ -26,9 +27,9 @@ namespace Character
 
         private void Update()
         {
-            var end = this.transform.position + (spriteRenderer.flipX ? -transform.right : transform.right) * _detectionDistance;
-
-            RaycastHit2D hit2D = Physics2D.Linecast(this.transform.position, end, layerMask);
+            var end = this.transform.position + _detectionVectorOryginOffser + (spriteRenderer.flipX ? -transform.right : transform.right) * _detectionDistance;
+            var start = this.transform.position + _detectionVectorOryginOffser;
+            RaycastHit2D hit2D = Physics2D.Linecast(start, end, layerMask);
 
             IState state = null;
             if (hit2D)
@@ -55,10 +56,10 @@ namespace Character
 
         private void OnDrawGizmos()
         {
-            var end = this.transform.position + (spriteRenderer.flipX ? -transform.right : transform.right) * _detectionDistance;
-            var instantEnd = this.transform.position + (spriteRenderer.flipX ? -transform.right : transform.right) * _instantDetectionDistance;
-            Debug.DrawLine(this.transform.position, end, Color.yellow);
-            Debug.DrawLine(this.transform.position, instantEnd, Color.red);
+            var end = this.transform.position + _detectionVectorOryginOffser + (spriteRenderer.flipX ? -transform.right : transform.right) * _detectionDistance;
+            var instantEnd = this.transform.position + _detectionVectorOryginOffser + (spriteRenderer.flipX ? -transform.right : transform.right) * _instantDetectionDistance;
+            Debug.DrawLine(this.transform.position + _detectionVectorOryginOffser, end, Color.yellow);
+            Debug.DrawLine(this.transform.position + _detectionVectorOryginOffser, instantEnd, Color.red);
         }
     }
 

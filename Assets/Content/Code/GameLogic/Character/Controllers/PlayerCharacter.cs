@@ -8,14 +8,20 @@ using BaseGameLogic.States.Providers;
 public class PlayerCharacter : Singleton<PlayerCharacter>
 {
     [SerializeField] private Vector3 _startPosition = Vector3.zero;
+    public Vector3 StartPosition
+    {
+        get { return _startPosition; }
+        set { _startPosition = value; }
+    }
     [Space]
     [SerializeField] private StateHandler _stateHandler = null;
     [SerializeField] private BaseStateProvider _baseStateProvider = null;
 
+
     protected override void Awake()
     {
         base.Awake();
-        _startPosition = transform.position;
+        StartPosition = transform.position;
     }
 
     public void ClearPlayerState()
@@ -25,7 +31,7 @@ public class PlayerCharacter : Singleton<PlayerCharacter>
 
     public void ReserToStartPosition()
     {
-        transform.position = _startPosition;
+        transform.position = StartPosition;
     }
 
     public void EnterDefaultState()

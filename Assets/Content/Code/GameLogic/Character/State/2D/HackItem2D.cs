@@ -24,6 +24,7 @@ public class HackItem2D : IState, IOnUpdate
     {
         _progressIndicator.Max = _hackTime;
         _transform.position = _locator.position;
+        animationHandler.Run.SetBool(_animator, false);
         animationHandler.Hack.SetBool(_animator, true);
     }
 
