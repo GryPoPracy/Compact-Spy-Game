@@ -34,7 +34,7 @@ public class SpawnGameObjectPhase : BaseDungeonGenerationPhaseMonoBehaviour
         }
 
         var room = levelMetadata.LevelData.Flors[0].Rooms[0];
-        var position = new Vector3(room.Size.x / 2, levelMetadata.LevelData.Flors[0].GroundLevel, 0); // room.transform.position;
+        var position = new Vector3(room.Size.x / 2, levelMetadata.LevelData.Flors[0].GroundLevel, 0);
 
         var instance = Instantiate(settings.PlayerObject);
         instance.transform.position = position;
