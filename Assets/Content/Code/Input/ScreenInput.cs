@@ -9,7 +9,7 @@ using UnityEngine.EventSystems;
 namespace BaseGameLogic.Inputs.Screen
 {
 
-    public partial class ScreenInput : Singleton<ScreenInput>
+    public partial class ScreenInput : SingletonMonoBehaviour<ScreenInput>
     {
         private enum Mode { Physics2D, Physics3D }
 

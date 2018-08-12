@@ -5,7 +5,7 @@ using System;
 using BaseGameLogic.Singleton;
 using BaseGameLogic.Utilities;
 
-public class LevelMetadata : Singleton<LevelMetadata>
+public class LevelMetadata : SingletonMonoBehaviour<LevelMetadata>
 {
     [Serializable] public class Level
     {

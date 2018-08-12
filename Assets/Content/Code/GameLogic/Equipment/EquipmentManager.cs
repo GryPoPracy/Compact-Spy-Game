@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace Equipment
 {
-    public class EquipmentManager : Singleton<EquipmentManager>
+    public class EquipmentManager : SingletonMonoBehaviour<EquipmentManager>
     {
         [SerializeField] private int _collectedPrice = 0;
         [SerializeField] private int _priceInStash = 0;

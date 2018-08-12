@@ -234,7 +234,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 0
 --- !u!114 &114598504831171482
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -309,6 +309,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 265f804b68195d145ae6e4dcd00c844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  Stering: 0
 --- !u!114 &114715461353063072
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -380,7 +382,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cecc7a4be5c991b419c2955fb676b0d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mode: 0
+  _mode: 1
   _graphic: {fileID: 114604071119416372}
   _a: {r: 1, g: 0.1717475, b: 0, a: 1}
   _b: {r: 0, g: 1, b: 0.043139458, a: 1}

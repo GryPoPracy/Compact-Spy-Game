@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(CameraLocomotionState2DSettings))]
-public class CameraController : Singleton<CameraController>
+public class CameraController : SingletonMonoBehaviour<CameraController>
 {
     [SerializeField] private CameraLocomotionState2DSettings _settings = null;
     [SerializeField] private bool _parentToPlayer = true;

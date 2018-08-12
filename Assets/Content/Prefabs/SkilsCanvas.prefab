@@ -22,14 +22,15 @@ GameObject:
   - component: {fileID: 222816238724557332}
   - component: {fileID: 114085909221938514}
   - component: {fileID: 114308746974312920}
-  - component: {fileID: 114970962142399084}
+  - component: {fileID: 114890958188776302}
+  - component: {fileID: 114265329520865858}
   - component: {fileID: 114568999573533966}
   - component: {fileID: 114438460639065292}
   - component: {fileID: 114113308557959124}
   - component: {fileID: 114548749112239696}
   - component: {fileID: 114457225296381084}
   m_Layer: 5
-  m_Name: Skill
+  m_Name: Invisibility
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,7 +47,6 @@ GameObject:
   - component: {fileID: 223305441015753614}
   - component: {fileID: 114687643211621084}
   - component: {fileID: 114228943343768486}
-  - component: {fileID: 114542097340297028}
   m_Layer: 0
   m_Name: SkilsCanvas
   m_TagString: Untagged
@@ -208,6 +208,22 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 0
+--- !u!114 &114265329520865858
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1472357877524462}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf0a51b027bfa0048bd91853d2786e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionList:
+    _actionsList:
+    - {fileID: 114568999573533966}
+    - {fileID: 114438460639065292}
+    - {fileID: 114113308557959124}
 --- !u!114 &114293607718803080
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +290,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 114970962142399084}
+      - m_Target: {fileID: 114265329520865858}
         m_MethodName: Perform
         m_Mode: 1
         m_Arguments:
@@ -283,6 +299,17 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 114890958188776302}
+        m_MethodName: UseSkillWithTarget
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Invisibility
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
@@ -333,18 +360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _message: Skill restored
---- !u!114 &114542097340297028
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1483734295102390}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02094a70098089b40a2445c4203d6321, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dontDestroyOnLoad: 0
 --- !u!114 &114548749112239696
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,7 +440,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 99.1
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
---- !u!114 &114970962142399084
+--- !u!114 &114890958188776302
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,14 +448,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1472357877524462}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89a2236a9ed52684c9321d81a736d4e7, type: 3}
+  m_Script: {fileID: 11500000, guid: e10550e3d471b5e40a847a988bd55ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _useSkillActionList:
-    _actionsList:
-    - {fileID: 114568999573533966}
-    - {fileID: 114438460639065292}
-    - {fileID: 114113308557959124}
 --- !u!222 &222066372904017278
 CanvasRenderer:
   m_ObjectHideFlags: 1

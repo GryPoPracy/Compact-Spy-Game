@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Character
 {
-    public partial class CommandProcesor : Singleton<CommandProcesor>, ISupervisor
+    public partial class CommandProcesor : SingletonMonoBehaviour<CommandProcesor>, ISupervisor
     {
         public enum CommadStering { Player, Skill }
 

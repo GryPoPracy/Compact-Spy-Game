@@ -5,7 +5,7 @@ using BaseGameLogic.Singleton;
 using BaseGameLogic.States.Providers;
 
 [RequireComponent(typeof(StateHandler), typeof(BaseStateProvider))]
-public class PlayerCharacter : Singleton<PlayerCharacter>
+public class PlayerCharacter : SingletonMonoBehaviour<PlayerCharacter>
 {
     [SerializeField] private Vector3 _startPosition = Vector3.zero;
     public Vector3 StartPosition

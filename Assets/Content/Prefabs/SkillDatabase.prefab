@@ -1,0 +1,146 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1417704727076198}
+  m_IsPrefabAsset: 1
+--- !u!1 &1089185298429334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4331304950827388}
+  - component: {fileID: 114458525015368500}
+  - component: {fileID: 114192838860042648}
+  m_Layer: 0
+  m_Name: Invisibility
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1417704727076198
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4161357789232812}
+  - component: {fileID: 114719235775735734}
+  m_Layer: 0
+  m_Name: SkillDatabase
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4161357789232812
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417704727076198}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.45463917, y: 1.3956269, z: -0.010288056}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4331304950827388}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4331304950827388
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089185298429334}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4161357789232812}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114192838860042648
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089185298429334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 149f116f7368d74468782a8cc7ad088e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _type: 0
+  _effectConstructor:
+    _baseType:
+      _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeName: IEffect
+      _name: IEffect
+    _type:
+      _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      _typeName: InvisibilityEffect
+      _name: InvisibilityEffect
+    _parameters:
+    - _parameterName: color
+      _type:
+        _assemblFullName: UnityEngine.CoreModule, Version=0.0.0.0, Culture=neutral,
+          PublicKeyToken=null
+        _typeName: UnityEngine.Color
+        _name: Color
+      ObjectValue: {fileID: 0}
+      IntValue: 0
+      FloatValue: 0
+      BoolValue: 0
+      StringValue: 
+      ColorValue: {r: 1, g: 1, b: 1, a: 0.78431374}
+    - _parameterName: duration
+      _type:
+        _assemblFullName: mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
+        _typeName: System.Single
+        _name: Single
+      ObjectValue: {fileID: 0}
+      IntValue: 0
+      FloatValue: 15
+      BoolValue: 0
+      StringValue: 
+      ColorValue: {r: 1, g: 1, b: 1, a: 1}
+    _name: InvisibilityEffect (Color color, Single duration)
+--- !u!114 &114458525015368500
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1089185298429334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b67ef3ddf2fd71244a0a7720234008d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _efectors:
+  - {fileID: 114192838860042648}
+--- !u!114 &114719235775735734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1417704727076198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d74856cb5f203f47bfbfbdb85b9eda8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dontDestroyOnLoad: 0
+  skills:
+  - {fileID: 114458525015368500}

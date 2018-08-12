@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class CaughtCanvas : Singleton<CaughtCanvas>
+public class CaughtCanvas : SingletonMonoBehaviour<CaughtCanvas>
 {
     [SerializeField] private float _fadeSpeed = 1f;
     [SerializeField, Range(0f,1f)] private float _fadeStatus = 0f;
