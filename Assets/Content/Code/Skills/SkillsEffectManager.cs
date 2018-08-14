@@ -17,7 +17,6 @@ public class SkillsEffectManager : MonoBehaviour
             Effect = effect;
             _effectName = Effect.GetType().Name;
         }
-
     }
         
     public void ApplyEffect(GameObject target, IEffect effect, BaseAsyncSkillEfector.EffectType type)
