@@ -90,7 +90,7 @@ MonoBehaviour:
       _name: IEffect
     _type:
       _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-      _typeName: InvisibilityEffect
+      _typeName: MainGameLogic.Skills.InvisibilityEffect
       _name: InvisibilityEffect
     _parameters:
     - _parameterName: color
@@ -104,7 +104,7 @@ MonoBehaviour:
       FloatValue: 0
       BoolValue: 0
       StringValue: 
-      ColorValue: {r: 1, g: 1, b: 1, a: 0.78431374}
+      ColorValue: {r: 1, g: 1, b: 1, a: 0.49019608}
     - _parameterName: duration
       _type:
         _assemblFullName: mscorlib, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089
@@ -112,11 +112,11 @@ MonoBehaviour:
         _name: Single
       ObjectValue: {fileID: 0}
       IntValue: 0
-      FloatValue: 15
+      FloatValue: 5
       BoolValue: 0
       StringValue: 
       ColorValue: {r: 1, g: 1, b: 1, a: 1}
-    _name: InvisibilityEffect (Color color, Single duration)
+    _name: MainGameLogic.Skills.InvisibilityEffect (Color color, Single duration)
 --- !u!114 &114458525015368500
 MonoBehaviour:
   m_ObjectHideFlags: 1
