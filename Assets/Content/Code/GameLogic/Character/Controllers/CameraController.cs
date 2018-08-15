@@ -3,21 +3,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(CameraLocomotionState2DSettings))]
-public class CameraController : SingletonMonoBehaviour<CameraController>
+namespace MainGameLogic.Characters
 {
-    [SerializeField] private CameraLocomotionState2DSettings _settings = null;
-    [SerializeField] private bool _parentToPlayer = true;
-
-    protected override void Awake()
+    [RequireComponent(typeof(CameraLocomotionState2DSettings))]
+    public class CameraController : SingletonMonoBehaviour<CameraController>
     {
-        base.Awake();
-        if(_parentToPlayer)
-            this.transform.SetParent(PlayerCharacter.Instance.transform);
-    }
+        [SerializeField] private CameraLocomotionState2DSettings _settings = null;
+        [SerializeField] private bool _parentToPlayer = true;
 
-    private void Reset()
-    {
-        _settings = GetComponent<CameraLocomotionState2DSettings>();
+        protected override void Awake()
+        {
+            base.Awake();
+            if(_parentToPlayer)
+                this.transform.SetParent(PlayerCharacter.Instance.transform);
+        }
+
+        private void Reset()
+        {
+            _settings = GetComponent<CameraLocomotionState2DSettings>();
+        }
     }
 }

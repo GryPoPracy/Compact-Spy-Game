@@ -1,14 +1,18 @@
 ﻿using ActionsSystem;
 using BaseGameLogic.States;
 using BaseGameLogic.States.Providers;
+using MainGameLogic.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ForcePlayerToEnterDefaultStateAction : BaseAction
+namespace MainGameLogic.Action
 {
-    public override void Perform(params object[] list)
+    public class ForcePlayerToEnterDefaultStateAction : BaseAction
     {
-        PlayerCharacter.Instance.EnterDefaultState();
+        public override void Perform(params object[] list)
+        {
+            PlayerCharacter.Instance.EnterDefaultState();
+        }
     }
 }

@@ -2,14 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SetSpriteRendererColorSkillEffector : BaseSkillEffector
+namespace MainGameLogic.Skills
 {
-    [SerializeField] private Color _color = Color.white;
-
-    public override void Effect(GameObject target)
+    public class SetSpriteRendererColorSkillEffector : BaseSkillEffector
     {
-        var spriteRenderer = target.GetComponentInChildren<SpriteRenderer>();
-        if (spriteRenderer != null)
-            spriteRenderer.color = _color;
+        [SerializeField] private Color _color = Color.white;
+
+        public override void Effect(GameObject target)
+        {
+            var spriteRenderer = target.GetComponentInChildren<SpriteRenderer>();
+            if (spriteRenderer != null)
+                spriteRenderer.color = _color;
+        }
     }
 }

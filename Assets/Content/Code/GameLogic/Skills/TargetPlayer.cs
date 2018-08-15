@@ -1,14 +1,17 @@
-﻿using System.Collections;
+﻿using MainGameLogic.Characters;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TargetPlayer : BaseSkillTargerProvider
+namespace MainGameLogic.Skills
 {
-    public override GameObject Target { get { return PlayerCharacter.Instance == null ? null : PlayerCharacter.Instance.gameObject; } }
-
-    protected override IEnumerator SelectTargetCorutine()
+    public class TargetPlayer : BaseSkillTargerProvider
     {
-        yield return new WaitUntil(() => { return true; });
+        public override GameObject Target { get { return PlayerCharacter.Instance == null ? null : PlayerCharacter.Instance.gameObject; } }
+
+        protected override IEnumerator SelectTargetCorutine()
+        {
+            yield return new WaitUntil(() => { return true; });
+        }
     }
 }
-

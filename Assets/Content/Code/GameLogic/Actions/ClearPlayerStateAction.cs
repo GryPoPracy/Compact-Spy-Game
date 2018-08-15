@@ -1,12 +1,16 @@
 ﻿using ActionsSystem;
+using MainGameLogic.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClearPlayerStateAction : BaseAction
+namespace MainGameLogic.Action
 {
-    public override void Perform(params object[] list)
+    public class ClearPlayerStateAction : BaseAction
     {
-        PlayerCharacter.Instance.ClearPlayerState();
+        public override void Perform(params object[] list)
+        {
+            PlayerCharacter.Instance.ClearPlayerState();
+        }
     }
 }

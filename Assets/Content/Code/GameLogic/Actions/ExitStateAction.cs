@@ -4,11 +4,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitStateAction : BaseAction
+namespace MainGameLogic.Action
 {
-    public override void Perform(params object[] list)
+    public class ExitStateAction : BaseAction
     {
-        var statHandler = SelectObjectForData<StateHandler>(list);
-        statHandler.ExitState();
+        public override void Perform(params object[] list)
+        {
+            var statHandler = SelectObjectForData<StateHandler>(list);
+            statHandler.ExitState();
+        }
     }
 }
