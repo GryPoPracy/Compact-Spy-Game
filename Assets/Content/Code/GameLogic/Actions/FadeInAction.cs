@@ -3,14 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeInAction : BaseAsyncAction
+namespace MainGameLogic.Action
 {
-    public override IEnumerator Corutine(params object[] data)
+    public class FadeInAction : BaseAsyncAction
     {
-        CaughtCanvas.Instance.FadeIn();
+        public override IEnumerator Corutine(params object[] data)
+        {
+            CaughtCanvas.Instance.FadeIn();
 
-        yield return new WaitUntil(() => { return CaughtCanvas.Instance.FadedIn; });
-
-        //yield return new WaitUntil(()=> { return !Input.anyKeyDown; });
+            yield return new WaitUntil(() => { return CaughtCanvas.Instance.FadedIn; });
+        }
     }
 }

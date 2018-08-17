@@ -3,11 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FadeOutAction : BaseAsyncAction
+namespace MainGameLogic.Action
 {
-    public override IEnumerator Corutine(params object[] data)
+    public class FadeOutAction : BaseAsyncAction
     {
-        CaughtCanvas.Instance.FadeOut();
-        yield return new WaitUntil(() => { return CaughtCanvas.Instance.FadedOut; });
+        public override IEnumerator Corutine(params object[] data)
+        {
+            CaughtCanvas.Instance.FadeOut();
+            yield return new WaitUntil(() => { return CaughtCanvas.Instance.FadedOut; });
+        }
     }
 }

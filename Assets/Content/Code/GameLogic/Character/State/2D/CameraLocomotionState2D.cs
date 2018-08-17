@@ -1,5 +1,6 @@
 ﻿using BaseGameLogic.States;
 using BaseGameLogic.Utilities;
+using MainGameLogic.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;

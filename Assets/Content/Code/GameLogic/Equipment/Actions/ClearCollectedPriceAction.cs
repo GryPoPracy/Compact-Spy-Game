@@ -1,16 +1,15 @@
 ﻿using ActionsSystem;
-using MainGameLogic.Characters;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace MainGameLogic.Action
+namespace Equipment
 {
-    public class MovePlayerToStartPositionAction : BaseAction
+    public class ClearCollectedPriceAction : BaseAction
     {
         public override void Perform(params object[] list)
         {
-            PlayerCharacter.Instance.ReserToStartPosition();
+            EquipmentManager.Instance.ClearCollectedPrice();
         }
     }
 }

@@ -5,11 +5,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnterDefaultStateAction : BaseAction
+namespace MainGameLogic.Action
 {
-    public override void Perform(params object[] list)
+    public class EnterDefaultStateAction : BaseAction
     {
-        var stateProvider = SelectObjectForData<GameObject>(list).GetComponent<BaseStateProvider>();
-        stateProvider.EnterDefaultState();
+        public override void Perform(params object[] list)
+        {
+            var stateProvider = SelectObjectForData<GameObject>(list).GetComponent<BaseStateProvider>();
+            stateProvider.EnterDefaultState();
+        }
     }
 }

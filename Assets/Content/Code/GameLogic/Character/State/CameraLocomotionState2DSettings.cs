@@ -1,4 +1,5 @@
-﻿using BaseGameLogic.Utilities;
+﻿using BaseGameLogic.LevelGeneration;
+using BaseGameLogic.Utilities;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
