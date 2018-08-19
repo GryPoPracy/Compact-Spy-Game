@@ -20,7 +20,6 @@ namespace BaseGameLogic.Inputs.Screen
         [SerializeField] private LayerMask _detectObjectLayer = new LayerMask();
 
         public ObjectSelectedCallback ObjectSelectedCallback = new ObjectSelectedCallback();
-        public ObjectSelected2DCallback ObjectSelected2DCallback = new ObjectSelected2DCallback();
 
         private void Update()
         {
@@ -38,54 +37,64 @@ namespace BaseGameLogic.Inputs.Screen
                 case Mode.Physics2D:
                     worldPosition = _camera.Camera.ScreenToWorldPoint(onScrennPosition);
                     var collider =  Physics2D.OverlapPoint(worldPosition);
-                    ObjectSelected2DCallback.Invoke(new ClickInfo2D(worldPosition, collider));
+                    ObjectSelectedCallback.Invoke(new ClickInfo2D(worldPosition, collider));
                     break;
 
                 case Mode.Physics3D:
-                    worldPosition = _camera.Camera.ScreenToWorldPoint(onScrennPosition);
+                    worldPosition = _camera.Camera.ScreenToWorldPoint(new Vector3(onScrennPosition.x, onScrennPosition.y, Mathf.Abs(_camera.Camera.transform.position.z)));
                     Ray ray = _camera.Camera.ScreenPointToRay(onScrennPosition);
                     RaycastHit hit;
                     if (Physics.Raycast(ray, out hit, _detectObjectLayer))
                     {
+                        worldPosition = hit.point;
                         Debug.DrawLine(ray.origin, hit.point, Color.green, 1f);
-                        ObjectSelectedCallback.Invoke(new ClickInfo(hit));
                     }
+                    ObjectSelectedCallback.Invoke(new ClickInfo(worldPosition, hit));
                     break;
             }
+            Debug.LogFormat("On screen position: {0}.", onScrennPosition);
+            Debug.LogFormat("World position: {0}.", worldPosition);
         }
     }
 
-    public class ClickInfo2D
+    public abstract class BaseClickInfo
     {
         public readonly Vector3 WorldPosition = Vector3.zero;
-        public Rigidbody2D Rigidbody2D { get { return Collider.attachedRigidbody; } }
-        public readonly Collider2D Collider = null;
-        public GameObject GameObject { get { return Collider == null ? null : Collider.gameObject; } }
 
-        public ClickInfo2D(Vector3 worldPosition, Collider2D collider)
+        public abstract GameObject GameObject { get; }
+
+        protected BaseClickInfo(Vector3 worldPosition)
         {
             WorldPosition = worldPosition;
+        }
+    }
+
+    public class ClickInfo2D : BaseClickInfo
+    {
+        public Rigidbody2D Rigidbody2D { get { return Collider.attachedRigidbody; } }
+        public readonly Collider2D Collider = null;
+        public override GameObject GameObject { get { return Collider == null ? null : Collider.gameObject; } }
+
+        public ClickInfo2D(Vector3 worldPosition, Collider2D collider) : base(worldPosition)
+        {
             Collider = collider;
         }
     }
 
-    public class ClickInfo
+    public class ClickInfo : BaseClickInfo
     {
         private RaycastHit hitInfo;
-        public Vector3 WorldPosition = Vector3.zero;
         public Collider Collider { get { return hitInfo.collider; } }
         public Vector3 HitPoint { get { return hitInfo.point; } }
         public Vector3 Normal { get { return hitInfo.normal; } }
         public Rigidbody Rigidbody { get { return hitInfo.rigidbody; } }
-        public GameObject GameObject { get { return hitInfo.collider.gameObject; } }
+        public override GameObject GameObject { get { return hitInfo.collider == null ? null : hitInfo.collider.gameObject; } }
 
-        public ClickInfo(RaycastHit hitInfo)
+        public ClickInfo(Vector3 wordPosition,  RaycastHit hitInfo) :base (wordPosition)
         {
             this.hitInfo = hitInfo;
         }
     }
 
-    [Serializable] public class ObjectSelectedCallback : UnityEvent<ClickInfo> {}
-    [Serializable] public class ObjectSelected2DCallback : UnityEvent<ClickInfo2D> {}
-
+    [Serializable] public class ObjectSelectedCallback : UnityEvent<BaseClickInfo> {}
 }

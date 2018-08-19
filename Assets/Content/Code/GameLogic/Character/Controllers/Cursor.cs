@@ -16,10 +16,10 @@ namespace MainGameLogic.Characters
             _renderer.enabled = false;    
         }
 
-        public void Move(ClickInfo2D clickInfo2D)
+        public void Move(BaseClickInfo clickInfo)
         {
             var playerPosition = PlayerCharacter.Instance.transform.position;
-            transform.position = new Vector3(clickInfo2D.WorldPosition.x, playerPosition.y, 0);
+            transform.position = new Vector3(clickInfo.WorldPosition.x, playerPosition.y, 0);
             _renderer.enabled = true;
 
             if (_turnOffCorutine != null)

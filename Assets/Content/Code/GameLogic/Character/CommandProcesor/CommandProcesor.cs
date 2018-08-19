@@ -23,11 +23,10 @@ namespace Character
             if (ScreenInput.Instance != null)
             {
                 ScreenInput.Instance.ObjectSelectedCallback.AddListener(Process);
-                ScreenInput.Instance.ObjectSelected2DCallback.AddListener(Process);
             }
         }
 
-        private void Process(ClickInfo2D arg0)
+        private void Process(BaseClickInfo arg0)
         {
             switch (Stering)
             {
@@ -38,11 +37,6 @@ namespace Character
                     _skillCommad = new Command(arg0.WorldPosition, Vector3.zero, arg0.GameObject);
                     break;
             }
-        }
-
-        private void Process(ClickInfo arg1)
-        {
-            _playerCommand = new Command(arg1.WorldPosition, arg1.GameObject);
         }
 
         public void Consume()

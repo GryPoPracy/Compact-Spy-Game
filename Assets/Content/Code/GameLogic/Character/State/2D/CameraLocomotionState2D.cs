@@ -29,7 +29,7 @@ public class CameraLocomotionState2D : IState, IOnLateUpdate
             PlayerTransform.position + _cameraLocomotionState2DSettings.CameraOffset, 
             _cameraLocomotionState2DSettings.Speed * Time.deltaTime);
 
-        if (_cameraLocomotionState2DSettings.UseBounds)
+        if (_camera.orthographic && _cameraLocomotionState2DSettings.UseBounds)
             constraint.ForceBoundaries();
     }
 }
