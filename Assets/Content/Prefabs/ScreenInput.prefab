@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4793839485692360}
   - component: {fileID: 114792928718188422}
   - component: {fileID: 114953420697976526}
-  - component: {fileID: 114180003677743436}
   m_Layer: 0
   m_Name: ScreenInput
   m_TagString: Untagged
@@ -96,7 +95,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1059388792023910}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.644844, y: -6.341714, z: -5.2589173}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4534595313096574}
@@ -134,18 +133,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _renderer: {fileID: 212268159467715060}
   _turnOffDistance: 0.1
---- !u!114 &114180003677743436
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1059388792023910}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0be69fb499a37f54a912bdbf4ab6c9f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _rayDuration: 1
 --- !u!114 &114792928718188422
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -158,7 +145,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dontDestroyOnLoad: 0
-  _mode: 0
+  _mode: 1
   _camera:
     _camera: {fileID: 0}
   _clickHandlers:
@@ -167,22 +154,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 822
   ObjectSelectedCallback:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 114180003677743436}
-        m_MethodName: LogSelection
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-    m_TypeName: BaseGameLogic.Inputs.Screen.ObjectSelectedCallback, Assembly-CSharp,
-      Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  ObjectSelected2DCallback:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 114157506594587816}
@@ -196,7 +167,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-    m_TypeName: BaseGameLogic.Inputs.Screen.ObjectSelected2DCallback, Assembly-CSharp,
+    m_TypeName: BaseGameLogic.Inputs.Screen.ObjectSelectedCallback, Assembly-CSharp,
       Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
 --- !u!114 &114953420697976526
 MonoBehaviour:
@@ -209,6 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d1ba6cfd3544b2458c576b9240d1642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mouseButton: 0
 --- !u!212 &212268159467715060
 SpriteRenderer:
   m_ObjectHideFlags: 1
