@@ -11,7 +11,7 @@ using Object = UnityEngine.Object;
 
 namespace Skills
 {
-    public class SkilsManager : Singleton<SkilsManager>
+    public class SkilsManager : SingletonMonoBehaviour<SkilsManager>
     {
         [Serializable] public class SkillEffect
         {
