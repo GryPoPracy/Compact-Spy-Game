@@ -15,5 +15,5 @@ public partial class CameraLocomotionState2DSettings : MonoBehaviour
     [SerializeField] private bool _useBounds = true;
     public bool UseBounds { get { return _useBounds; } }
 
-    public OrthogtaphicCameraBounds Bounds { get { return LevelMetadata.Instance.LevelBounds; } }
+    public OrthogtaphicCameraBounds Bounds { get { return LevelMetadata.Instance == null ? null : LevelMetadata.Instance.LevelBounds; } }
 }
