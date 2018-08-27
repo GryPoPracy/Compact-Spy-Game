@@ -10,6 +10,7 @@ TextureImporter:
     21300010: Tomek_Prototype_Atlas_5
     21300012: Tomek_Prototype_Atlas_6
     21300014: Tomek_Prototype_Atlas_7
+    21300016: Tomek_Prototype_Atlas_8
   externalObjects: {}
   serializedVersion: 7
   mipmaps:
@@ -106,7 +107,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d1447d56062b7284499ef8e8b57be764
+      spriteID: 80c2b69f4b0f7b8429cffce810a046f2
       vertices: []
       indices: 
       edges: []
@@ -126,7 +127,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce7a066fdf4015a4ba61e3c886c3551a
+      spriteID: f7201c369ce5ded4b9ee7b849382f62c
       vertices: []
       indices: 
       edges: []
@@ -140,13 +141,13 @@ TextureImporter:
         width: 6
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 371d7d20b51e7da4a8a6f9c7cc0cdce6
+      spriteID: 6ec59104c8de4354fa39d762f614d2eb
       vertices: []
       indices: 
       edges: []
@@ -166,7 +167,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1102f92714d098342928827057671964
+      spriteID: 7f993eda2feef1e41a25f187ad82fa98
       vertices: []
       indices: 
       edges: []
@@ -186,7 +187,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a534ef75211db724085d4f15a26a2e63
+      spriteID: fca05dd0078485e47806622bbb9a8113
       vertices: []
       indices: 
       edges: []
@@ -195,18 +196,18 @@ TextureImporter:
       name: Tomek_Prototype_Atlas_5
       rect:
         serializedVersion: 2
-        x: 60
-        y: 1125
-        width: 228
-        height: 89
-      alignment: 0
-      pivot: {x: 0, y: 0}
+        x: 1101
+        y: 739
+        width: 914
+        height: 1177
+      alignment: 2
+      pivot: {x: 0.5, y: 1}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: aa3430c7023052e42b8dfc16bbdc08c6
+      spriteID: 3df567a724d268244ac2b39c8f3aabce
       vertices: []
       indices: 
       edges: []
@@ -215,18 +216,18 @@ TextureImporter:
       name: Tomek_Prototype_Atlas_6
       rect:
         serializedVersion: 2
-        x: 469
-        y: 987
-        width: 4
-        height: 6
+        x: 64
+        y: 1125
+        width: 228
+        height: 89
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3ecd30576f6afd74faf24262ac6c877e
+      spriteID: 9234457c040fa1547b381673154e222c
       vertices: []
       indices: 
       edges: []
@@ -235,18 +236,38 @@ TextureImporter:
       name: Tomek_Prototype_Atlas_7
       rect:
         serializedVersion: 2
-        x: 44
-        y: 736
-        width: 1023
-        height: 133
+        x: 469
+        y: 987
+        width: 4
+        height: 6
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7618ccd370391b34fa776ce6a8da915c
+      spriteID: fd5f6c8793466b044b29fa60678d4740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Tomek_Prototype_Atlas_8
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 736
+        width: 1023
+        height: 133
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ed62a50e3b5fe38438db886ef806de18
       vertices: []
       indices: 
       edges: []
