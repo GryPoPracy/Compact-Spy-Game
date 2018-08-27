@@ -12,6 +12,7 @@ ModelImporter:
     400004: Floor
     400006: Interior
     2100000: Material
+    2100002: Material.001
     2300000: //RootNode
     2300002: FRAME
     2300004: Floor
