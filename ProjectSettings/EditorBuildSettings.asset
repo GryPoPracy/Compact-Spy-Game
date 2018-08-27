@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Content/Scenes/SampleScene3DButtons.unity
+    guid: 637d03d95339cce4f940d2fc448286e6
+  - enabled: 0
     path: Assets/Content/Scenes/GenerationDev.unity
     guid: 2a7f6e581219bc14183e0cefc431ce07
   - enabled: 0

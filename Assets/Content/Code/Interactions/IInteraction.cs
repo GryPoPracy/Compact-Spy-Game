@@ -6,6 +6,8 @@ namespace Interactions
 {
     public interface IInteraction
     {
+        void Detected();
         void Interact(params object[] data);
+        void Leave();
     }
 }

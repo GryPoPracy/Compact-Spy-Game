@@ -14,6 +14,11 @@ namespace MainGameLogic.Characters
         protected override void Awake()
         {
             base.Awake();
+        }
+
+        protected override void Start()
+        {
+            base.Start();
             if(_parentToPlayer)
                 this.transform.SetParent(PlayerCharacter.Instance.transform);
         }

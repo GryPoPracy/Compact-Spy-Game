@@ -13,3 +13,6 @@
 [submodule "Assets/Content/Code/MapGenerator"]
 	path = Assets/Content/Code/MapGenerator
 	url = https://github.com/ukidabek/MapGenerator.git
+[submodule "Assets/Content/Code/Inputs"]
+	path = Assets/Content/Code/Inputs
+	url = https://github.com/ukidabek/Inputs.git
