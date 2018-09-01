@@ -12,12 +12,12 @@ namespace Character.States
     public class HideState : IState, IOnUpdate
     {
         [RequiredReference] private Transform _transform = null;
-        [RequiredReference] private NavMeshAgent _navMeshAgent = null;
         [RequiredReference] private Collider _collider = null;
-        [RequiredReference] private CommandProcesor _procesor = null;
         [RequiredReference] private StateHandler _stateHandler = null;
+        [RequiredReference] private InputHandlingModule _innputHandler = null;
 
         private Transform _hideoutTransform = null;
+        private Vector3 _oldPosition = Vector3.zero;
 
         public HideState(Transform hideoutTransform)
         {
@@ -26,23 +26,21 @@ namespace Character.States
 
         public void OnEnter()
         {
-            _navMeshAgent.enabled = false;
             _collider.enabled = false;
+            _oldPosition = _transform.position;
             _transform.position = _hideoutTransform.position;
         }
 
         public void OnExit()
         {
+            _transform.position = _oldPosition;
             _collider.enabled = true;
-            _navMeshAgent.enabled = true;
         }
 
         public void OnUpdate()
         {
-            if (_procesor.CurrenntCommand != null)
-            {
+            if (_innputHandler.CurrentInputSource.MovementVector.x != 0)
                 _stateHandler.ExitState();
-            }
         }
     }
 }

@@ -162,13 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c76abf5f88608f74caa4fde112462d20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  layerMask:
+  _layerMask:
     serializedVersion: 2
-    m_Bits: 1024
-  spriteRenderer: {fileID: 212777361609895644}
-  _detectionDistance: 0.7
-  _instantDetectionDistance: 0.3
-  _detectionVectorOryginOffser: {x: 0, y: 0.15, z: 0}
+    m_Bits: 0
   DetectionRateUpdateCallback:
     m_PersistentCalls:
       m_Calls:
@@ -198,6 +194,7 @@ MonoBehaviour:
       PublicKeyToken=null
   _detection: 0
   _detectionRate: 1
+  _detectorLogic: {fileID: 0}
   _playerDetectedEventTrigger:
     _eventName: PlayerDetected
 --- !u!114 &114217225088333174

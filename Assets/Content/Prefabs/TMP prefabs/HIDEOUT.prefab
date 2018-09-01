@@ -933,6 +933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a88ad1dc995a12418caea8b880410e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _actionList:
+    _actionsList: []
   stateInfo:
     _type:
       _assemblFullName: Assembly-CSharp, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
@@ -951,6 +953,8 @@ MonoBehaviour:
       BoolValue: 0
       StringValue: 
     _name: HideState (Transform hideoutTransform)
+  actionList:
+    _actionsList: []
 --- !u!114 &114623881233553334
 MonoBehaviour:
   m_ObjectHideFlags: 1
