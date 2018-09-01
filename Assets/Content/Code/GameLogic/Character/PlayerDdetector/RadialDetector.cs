@@ -9,7 +9,9 @@ public class RadialDetector : BaseDetctorLogic
     [SerializeField] private float _radius = 1f;
     [SerializeField] private float _angle = 20;
 
-    private GameObject _gameObject = null;
+    [SerializeField] private GameObject _gameObject = null;
+
+    [SerializeField, Range(0f, 1f)] private float _detection = 0;
 
     public override float Detect(float detectionRate, LayerMask layerMask)
     {
@@ -17,32 +19,46 @@ public class RadialDetector : BaseDetctorLogic
         {
             Vector3 targetDirection = _gameObject.transform.position - transform.position;
             targetDirection.z = 0;
-            float x = Vector3.Dot(transform.up, targetDirection);
-            Debug.Log(x);
-            Debug.DrawRay(this.transform.position, targetDirection);
-            if (x < 0)
+            if (Vector3.Dot(transform.up, targetDirection) < 0)
             {
-                float angle = Vector3.Angle(targetDirection, -transform.up);
-                if (angle <= _angle / 2)
+                if (Vector3.Angle(targetDirection, -transform.up) <= _angle / 2)
                 {
-                    Debug.Log("Detected.");
+                    Debug.DrawRay(this.transform.position, targetDirection, Color.red);
+                    _detection += Time.deltaTime * detectionRate;
+                }
+                else
+                {
+                    Debug.DrawRay(this.transform.position, targetDirection, Color.green);
+                    _detection -= Time.deltaTime * detectionRate;
                 }
             }
         }
+        else
+            _detection = 0;
 
+        return (_detection = Mathf.Clamp01(_detection));
+    }
 
-        return 0;
+    public override void Clear()
+    {
+        _detection = 0;
+        _gameObject = null;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.gameObject.name);
+        Debug.LogFormat("Object {0} enter the detector collier.", other.gameObject.name);
         _gameObject = other.gameObject;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        
+        if(_gameObject == other.gameObject)
+        {
+            Debug.LogFormat("Object {0} exit the detector collier.", other.gameObject.name);
+            _gameObject = null;
+        }
+
     }
 
     private void OnValidate()

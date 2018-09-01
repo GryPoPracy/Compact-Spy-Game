@@ -13,19 +13,26 @@ namespace Character
         public DetectionRateUpdate DetectionRateUpdateCallback = new DetectionRateUpdate();
         [SerializeField, Range(0f, 1f)] private float _detection = 0;
         [SerializeField] private float _detectionRate = 1f;
-        [SerializeField] private BaseDetctorLogic _detctorLogic;
+        [SerializeField] private BaseDetctorLogic _detectorLogic;
         [SerializeField] private GlobalEventTrigger _playerDetectedEventTrigger = new GlobalEventTrigger();
 
         private void Awake()
         {
             DetectionRateUpdateCallback.Invoke(_detection);
-            if (_detctorLogic == null)
+            if (_detectorLogic == null)
                 enabled = false;
         }
 
         private void Update()
         {
-            _detection = _detctorLogic.Detect(_detectionRate, _layerMask);
+            _detection = _detectorLogic.Detect(_detectionRate, _layerMask);
+            DetectionRateUpdateCallback.Invoke(_detection);
+            if (_detection >= 1f)
+            {
+                _playerDetectedEventTrigger.Trigger();
+                _detection = 0;
+                _detectorLogic.Clear();
+            }
         }
     }
 
