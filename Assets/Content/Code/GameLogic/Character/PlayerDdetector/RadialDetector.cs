@@ -58,7 +58,6 @@ public class RadialDetector : BaseDetctorLogic
             Debug.LogFormat("Object {0} exit the detector collier.", other.gameObject.name);
             _gameObject = null;
         }
-
     }
 
     private void OnValidate()
@@ -73,7 +72,7 @@ public class RadialDetector : BaseDetctorLogic
         _sphereCollider.isTrigger = true;
         _sphereCollider.radius = _radius;
     }
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
@@ -91,4 +90,5 @@ public class RadialDetector : BaseDetctorLogic
         Vector3 localPosition = rotation * (Vector3.zero + direction * radius);
         return transform.TransformPoint(localPosition);
     }
+#endif
 }

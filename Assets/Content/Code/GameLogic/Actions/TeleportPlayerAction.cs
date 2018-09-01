@@ -8,11 +8,11 @@ namespace MainGameLogic.Action
     public class TeleportPlayerAction : BaseAction
     {
         public Color GizmoColor = new Color(0, 0, 1, 1);
-        [SerializeField] private Vector3 _destination = Vector3.zero;
+        [SerializeField] private Vector3 _destination = Vector3.up;
         public Vector3 Destination
         {
-            get { return _destination; }
-            set { _destination = value; }
+            get { return transform.TransformPoint(_destination); }
+            set { _destination =  transform.InverseTransformPoint(value); }
         }
 
         public override void Perform(params object[] list)
@@ -24,10 +24,15 @@ namespace MainGameLogic.Action
 
         private void OnDrawGizmos()
         {
-            Gizmos.color = GizmoColor;
-            Vector3 position = Destination;
-            Gizmos.DrawLine(position - Vector3.right * .145f, position + Vector3.right * .145f);
-            Gizmos.DrawLine(position, position + Vector3.up * .25f);
+            System.Action<Vector3, Color> drawMarker = (Vector3 pos, Color color) =>
+            {
+                Gizmos.DrawLine(pos - Vector3.forward, pos + Vector3.forward);
+                Gizmos.DrawLine(pos - Vector3.right, pos + Vector3.right);
+                Gizmos.DrawLine(pos, pos + Vector3.up);
+            };
+
+            drawMarker(transform.position, GizmoColor);
+            drawMarker(Destination, GizmoColor);
         }
     }
 }

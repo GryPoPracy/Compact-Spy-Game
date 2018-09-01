@@ -27,6 +27,6 @@ public class LocomotionStateButtons : IState, IOnUpdate
     {
         _transform.position = _transform.position + _transform.right * MovementVector.x * Speed * Time.deltaTime;
         if (_interactionDetector.Interaction != null && Use)
-            _interactionDetector.Interaction.Interact(this._transform, _stateHandler);
+            _interactionDetector.Interaction.Interact(_transform, _transform.gameObject, _stateHandler);
     }
 }
