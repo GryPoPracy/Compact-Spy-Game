@@ -197,7 +197,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4375395705843526
 Transform:
   m_ObjectHideFlags: 1
@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbbbbce0ea4993d48a596239b211d32f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _owner: {fileID: 0}
+  _owner: {fileID: 114462115187508290}
   _pauseButton:
     inputName: 
     buttonState: 3
@@ -298,6 +298,8 @@ MonoBehaviour:
     keyCode: 0
     _screenButton: {fileID: 114417835196387334}
   _movementVector: {x: 0, y: 0, z: 0}
+  _canvasObject: {fileID: 1952720447284496}
+  _canvasStatus: 1
 --- !u!114 &114108217234444744
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -520,7 +522,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cde3b4d71188415469dd4e64c7b76933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _owner: {fileID: 0}
+  _owner: {fileID: 114462115187508290}
   _pauseButton:
     inputName: 
     buttonState: 3
@@ -561,13 +563,13 @@ MonoBehaviour:
   m_Script: {fileID: 1980459831, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1280, y: 720}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0
-  m_PhysicalUnit: 3
+  m_MatchWidthOrHeight: 0.5
+  m_PhysicalUnit: 0
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1

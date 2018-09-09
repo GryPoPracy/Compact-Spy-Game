@@ -21,4 +21,12 @@ public class Screen : InputSource
         }
     }
 
+    [SerializeField] private GameObject _canvasObject = null;
+    [SerializeField] private bool _canvasStatus = true;
+
+    protected override void Awake()
+    {
+        base.Awake();
+        _canvasObject.SetActive(_canvasStatus);
+    }
 }
