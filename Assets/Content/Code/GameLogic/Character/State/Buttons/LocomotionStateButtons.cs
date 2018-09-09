@@ -13,7 +13,7 @@ public class LocomotionStateButtons : IState, IOnUpdate
 
     private Vector3 MovementVector { get { return _inputHandlingModule.CurrentInputSource.MovementVector; } }
     private float Speed { get { return _locomotionButtonsSettings.Speed; } }
-    public bool Use { get { return _inputHandlingModule.CurrentInputSource.Use.State == BaseGameLogic.Inputs.ButtonStateEnum.Down; } }
+    public bool Use { get { return _inputHandlingModule.CurrentInputSource.Use.State == BaseGameLogic.Inputs.InputStateEnum.Down; } }
 
     public void OnEnter()
     {

@@ -5,5 +5,10 @@ using UnityEngine;
 
 public abstract class InputSource : BaseInputSource
 {
-    public abstract ButtonInput Use { get; }
+    public abstract PhysicalInput Use { get; }
+
+    public abstract PhysicalInput UseSkill0 { get; }
+    public abstract PhysicalInput UseSkill1 { get; }
+    public abstract PhysicalInput UseSkill2 { get; }
+    public abstract PhysicalInput UseSkill3 { get; }
 }
